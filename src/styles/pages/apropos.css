@@ -131,3 +131,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   html .ap-kpis .kpi { padding: 24px 14px 16px; gap: 4px; }
   html .ap-kpis .big { font-size: 32px; }
 }
+@media (max-width: 1100px) and (min-width: 721px) {
+  html .ap-pol { left: 0 !important; width: min(330px, 92%) !important; }
+}

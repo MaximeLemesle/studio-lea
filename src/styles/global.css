@@ -332,3 +332,8 @@ button.btn { background-clip: padding-box; }
 /* Étiquette prix compacte (maquettes mobiles) */
 .ptag { position: relative; display: inline-flex; flex-direction: column; padding: 10px 20px 10px 40px; clip-path: polygon(22px 0,100% 0,100% 100%,22px 100%,0 50%); color: #4A2018; }
 .mfolder .sheet { background: #FFFDF6; border-radius: 6px; box-shadow: 0 2px 6px rgba(40,15,10,.12); display: flex; flex-direction: column; }
+
+/* Menu carnet : les intercalaires dépassent du bord de la page */
+.menu-carnet { color: var(--brun); overflow-x: hidden; overflow-y: auto; }
+.mc-page { bottom: auto; min-height: 100%; overflow: visible; }
+.mc-inner { min-height: 100vh; min-height: 100dvh; }

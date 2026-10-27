@@ -50,3 +50,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   html .s-pol1 { width: 172px !important; top: 0 !important; }
   html .s-pol1 .polaroid-cap { font-size: 17px !important; }
 }
+@media (max-width: 1100px) and (min-width: 721px) {
+  html .s-pol1 { left: 0 !important; width: min(290px, 100%) !important; }
+}

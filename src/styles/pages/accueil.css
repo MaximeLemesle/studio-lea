@@ -229,3 +229,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #4A20
   .h-method-head > div { display: inline-block; align-self: flex-start; }
   .h-method-head svg { width: 80% !important; }
 }
+@media (max-width: 1100px) and (min-width: 721px) {
+  .h-services-head { flex-direction: column; align-items: flex-start !important; gap: 70px 0 !important; }
+}
