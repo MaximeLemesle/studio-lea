@@ -4,3 +4,4 @@ dist/
 .DS_Store
 # Réglages du formulaire (adresse email, SMTP) : jamais dans le dépôt
 public/api/config.php
+.env

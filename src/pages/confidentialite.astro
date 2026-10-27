@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import '../styles/legal.css';
+import '../styles/pages/confidentialite.css';
+---
+
+<Base title="Studio Béa — Politique de confidentialité" footerSticker={false}>
+<section class="grid-brown dark lg-hero" style="padding:64px 0 120px;color:#F7F0DC">
+  <div class="wrap" style="display:flex;flex-direction:column;gap:14px">
+    <nav aria-label="Fil d'Ariane" class="label" style="font-size:12px;color:#F3E9B5;display:flex;gap:10px"><a href="/" style="color:#F3E9B5">Accueil</a><span aria-hidden="true">/</span><span>Confidentialité</span></nav>
+    <h1 class="h1 lg-h1" style="color:#F7F0DC">Politique de<br>confidentialité</h1>
+    <p class="script lg-script" data-anim="write" aria-hidden="true" style="--d:.4s;font-size:58px;color:#F3E9B5;margin:-18px 0 0 560px;transform:rotate(-4deg)">vos données, en clair</p>
+  </div>
+</section>
+
+<section class="grid-cream lg-main" style="padding:0 0 110px">
+  <div class="wrap lg-grid" style="display:grid;grid-template-columns:300px minmax(0,1fr);gap:56px;align-items:start;margin-top:-70px">
+    <nav class="lg-toc-nav" aria-label="Sommaire"><details class="postit lg-toc" open data-toc style="position:relative;padding:36px 26px 20px;transform:rotate(-1.5deg)">
+      <div class="washi washi-plain" style="width:96px;top:-13px;left:50%;margin-left:-48px;transform:rotate(3deg)"></div>
+      <summary><span class="label">Sommaire</span><svg class="toc-chev" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6 L8 11 L13 6" fill="none" stroke="#4A2018" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary>
+      <ul class="toc">
+        <li><a href="#resp"><span class="spec">01</span>Responsable</a></li>
+        <li><a href="#donnees"><span class="spec">02</span>Données collectées</a></li>
+        <li><a href="#finalite"><span class="spec">03</span>Pourquoi ?</a></li>
+        <li><a href="#duree"><span class="spec">04</span>Conservation</a></li>
+        <li><a href="#cookies"><span class="spec">05</span>Cookies</a></li>
+        <li><a href="#droits"><span class="spec">06</span>Vos droits</a></li>
+      </ul>
+    </details></nav>
+
+    <article class="doc lg-doc" style="position:relative;padding:28px 64px 30px 96px">
+      <div class="washi washi-floral" style="width:130px;top:-14px;right:60px;transform:rotate(4deg)"></div>
+
+      <section id="resp" class="sec">
+        <p class="label">01</p>
+        <h2 class="h2">Responsable du traitement</h2>
+        <p class="body">Léa Audouin — Studio Béa, 353 chemin des Mortiers, 49770 La Membrolle-sur-Longuenée. SIRET 939 976 916 00014. Pour toute question sur vos données : via le <a href="/contact/">formulaire de contact</a>.</p>
+      </section>
+
+      <section id="donnees" class="sec">
+        <p class="label">02</p>
+        <h2 class="h2">Données collectées</h2>
+        <p class="body">Uniquement les informations que vous saisissez dans le formulaire de contact :</p>
+        <ul class="list">
+          <li>prénom et nom, adresse email, entreprise ou activité ;</li>
+          <li>services qui vous intéressent, budget et délai indicatifs ;</li>
+          <li>le contenu de votre message ;</li>
+          <li>les fichiers que vous choisissez de joindre (facultatif).</li>
+        </ul>
+        <p class="body">Aucune autre donnée personnelle n'est collectée sur ce site.</p>
+      </section>
+
+      <section id="finalite" class="sec">
+        <p class="label">03</p>
+        <h2 class="h2">Pourquoi ces données ?</h2>
+        <p class="body">Elles servent uniquement à répondre à votre demande et à vous préparer un devis. Elles ne sont ni vendues, ni louées, ni utilisées pour de la prospection non sollicitée.</p>
+        <p class="body">Base légale : votre consentement (case à cocher du formulaire) et les échanges préalables à un éventuel contrat.</p>
+        <p class="body">Destinataires : Léa Audouin uniquement. <span class="a-completer">À compléter</span></p>
+      </section>
+
+      <section id="duree" class="sec">
+        <p class="label">04</p>
+        <h2 class="h2">Durée de conservation</h2>
+        <p class="body">Vos données sont conservées 1 an après notre dernier échange, puis supprimées. Si nous travaillons ensemble, les documents comptables sont conservés pendant la durée légale.</p>
+      </section>
+
+      <section id="cookies" class="sec">
+        <p class="label">05</p>
+        <h2 class="h2">Cookies</h2>
+        <p class="body">Ce site n'utilise ni cookies publicitaires, ni outil de mesure d'audience déposant des cookies sur votre appareil. Le référencement est suivi avec Google Search Console, qui ne dépose pas de cookie chez les visiteurs. Aucun bandeau de consentement n'est donc nécessaire.</p>
+      </section>
+
+      <section id="droits" class="sec">
+        <p class="label">06</p>
+        <h2 class="h2">Vos droits</h2>
+        <p class="body">Vous pouvez à tout moment demander l'accès, la rectification, l'effacement ou la portabilité de vos données, ou vous opposer à leur traitement, en écrivant via le <a href="/contact/">formulaire de contact</a>. Je vous réponds sous un mois maximum.</p>
+        <p class="body">Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (<a href="https://www.cnil.fr">www.cnil.fr</a>).</p>
+        <p class="spec" style="margin-top:8px">Dernière mise à jour : <span class="a-completer">À compléter</span></p>
+      </section>
+    </article>
+  </div>
+</section>
+<script>
+  import '../scripts/legal';
+</script>
+</Base>

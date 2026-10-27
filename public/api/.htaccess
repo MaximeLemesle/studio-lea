@@ -1,0 +1,5 @@
+# Seul contact.php est accessible ; les réglages ne sont jamais servis.
+<FilesMatch "^(config|config\.example)\.php$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

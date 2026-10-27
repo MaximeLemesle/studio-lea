@@ -59,3 +59,75 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .kpi .big{font-family:'Josefin Sans','Century Gothic',sans-serif;font-weight:700;font-size:58px;line-height:1}
 .fun{position:relative;padding:46px 28px 30px;display:flex;flex-direction:column;gap:12px;box-shadow:0 2px 0 rgba(74,32,24,.05),0 14px 22px rgba(40,15,10,.2)}
 .univ{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:#FFFDF6;color:#4A2018;font-family:'Courier Prime','Courier New',monospace;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 3px 0 rgba(0,0,0,.25)}
+
+/* ==========================================================================
+   À propos — tablette et mobile (maquette Apropos-mobile)
+   ========================================================================== */
+@media (hover: none) {
+  .m-tap-peel { transition: transform .3s ease; }
+  .m-tap-peel:active { transform: rotate(0deg) translateY(-4px) !important; }
+}
+@media (max-width: 1100px) and (min-width: 721px) {
+  html .ap-enchantee { margin-left: 40px !important; }
+  html .ap-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; row-gap: 36px !important; }
+  html .ap-petits { margin-left: 200px !important; }
+  html .ap-funs { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 720px) {
+  html .ap-hero { padding: 30px 0 52px !important; }
+  html .ap-hero-grid { display: flex !important; flex-direction: column; align-items: stretch !important; gap: 0 !important; }
+  html .ap-hero-text { display: contents !important; }
+  .ap-hero .label.dots { align-self: flex-start; margin-top: 18px; padding: 7px 14px !important; font-size: 11px !important; }
+  html .ap-h1 { margin-top: 0 !important; }
+  html .ap-enchantee { font-size: 42px !important; text-align: right; margin: 4px 0 0 !important; }
+  .ap-hero .lead { margin-top: 10px; font-size: 17px !important; }
+  html .ap-visual { order: 5; height: 330px !important; margin-top: 28px; }
+  html .ap-pol { left: 20px !important; top: 6px !important; width: 230px !important; }
+  html .ap-pol .washi { width: 90px !important; top: -12px !important; margin-left: -45px !important; }
+  html .ap-pol .polaroid-cap { font-size: 20px !important; }
+  html .ap-hero-cta { order: 6; margin-top: 14px !important; gap: 12px !important; }
+
+  html .ap-kpis-sec { padding: 52px 0 56px !important; }
+  .ap-kpis-sec .wrap { padding: 0 16px; }
+  .ap-kpis-sec .wrap > div:first-child { margin-bottom: 30px !important; gap: 6px !important; padding: 0 4px; }
+  html .ap-kpis-sec .h2, html .ap-cv .h2 { font-size: 30px !important; }
+  html .ap-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 24px 14px !important; }
+  html .ap-kpis .washi { width: 64px !important; height: 20px; top: -10px !important; left: 50% !important; right: auto !important; margin-left: -32px !important; }
+  html .ap-kpis .small { font-size: 13px !important; line-height: 1.4; }
+
+  html .ap-cv { padding: 52px 0 60px !important; }
+  .ap-cv .wrap { padding: 0 18px; }
+  .ap-cv .wrap > div:first-child { margin-bottom: 40px !important; }
+  html .ap-diplomas { display: flex !important; flex-direction: column; gap: 36px !important; }
+  html .ap-diplomas .h3 { font-size: 19px !important; }
+  html .ap-diplomas .small { font-size: 14px !important; }
+  html .ap-diplomas .label { font-size: 10px !important; }
+
+  html .ap-univ { padding: 52px 0 56px !important; }
+  .ap-univ .wrap { gap: 0 !important; }
+  .ap-univ .wrap > div:first-child { display: block !important; }
+  html .ap-univ-title { font-size: 28px !important; }
+  html .ap-bref { font-size: 42px !important; text-align: right; margin: 0 4px 12px 0 !important; }
+  html .ap-univs { gap: 10px !important; }
+
+  html .ap-fun-sec { padding: 52px 0 60px !important; }
+  .ap-fun-sec .wrap { padding: 0 18px; }
+  .ap-fun-sec .wrap > div:first-child { margin-bottom: 0 !important; }
+  .ap-fun-sec .wrap > div:first-child > div { gap: 6px !important; }
+  html .ap-fun-sec .h2 { font-size: 28px !important; }
+  html .ap-petits { font-size: 44px !important; text-align: right; margin: 0 6px 0 0 !important; }
+  html .ap-funs { display: flex !important; flex-direction: column; gap: 30px !important; margin-top: 30px !important; }
+  html .ap-funs .fun { margin-top: 0 !important; }
+  html .ap-funs .fun:nth-child(1) { margin-right: 30px; }
+  html .ap-funs .fun:nth-child(2) { margin-left: 30px; }
+  html .ap-funs .fun:nth-child(3) { margin-right: 24px; }
+  html .ap-funs .washi { width: 84px !important; top: -12px !important; left: 50% !important; right: auto !important; margin-left: -42px !important; }
+  html .ap-funs .h3 { font-size: 20px !important; }
+  html .ap-more { margin-top: 40px !important; }
+  html .ap-more > div { padding: 20px 18px !important; outline-offset: -7px !important; }
+  html .ap-more .note { font-size: 21px !important; }
+}
+@media (max-width: 720px) {
+  html .ap-kpis .kpi { padding: 24px 14px 16px; gap: 4px; }
+  html .ap-kpis .big { font-size: 32px; }
+}
