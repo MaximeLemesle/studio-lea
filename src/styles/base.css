@@ -1,0 +1,29 @@
+/* Styles communs à toutes les maquettes (extraits tels quels) */
+a{color:#4A2018}
+a:hover{color:#2E120C}
+p{margin:0}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px;position:relative}
+.serif{font-family:'Josefin Sans','Century Gothic',sans-serif;font-weight:700}
+.h3{font-family:'Josefin Sans','Century Gothic',sans-serif;font-weight:700;font-size:28px;line-height:1.2;margin:0}
+.label{font-family:'Courier Prime','Courier New',monospace;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;line-height:1.45}
+.lead{font-size:20px;line-height:1.6}
+.small{font-size:16px;line-height:1.55}
+.spec{font-family:'Courier Prime','Courier New',monospace;font-size:13px;line-height:1.55}
+.link{font-family:'Courier Prime','Courier New',monospace;font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
+.grid-brown{background-color:#4A2018;background-image:linear-gradient(rgba(247,240,220,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(247,240,220,.08) 1px,transparent 1px);background-size:32px 32px}
+.grid-cream{background-color:#F7F0DC;background-image:linear-gradient(rgba(74,32,24,.075) 1px,transparent 1px),linear-gradient(90deg,rgba(74,32,24,.075) 1px,transparent 1px);background-size:28px 28px}
+.grid-sage{background-color:#DCD6A9;background-image:linear-gradient(rgba(74,32,24,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(74,32,24,.09) 1px,transparent 1px);background-size:32px 32px}
+.washi-plain{background-color:#F3E9B5;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 2px,transparent 2px 9px)}
+.washi-dots{background-color:#EFC9D2;background-image:radial-gradient(rgba(255,253,246,.95) 2.3px,transparent 2.9px);background-size:12px 12px}
+.washi-floral{background-color:#CFE3C4;background-image:radial-gradient(circle at 50% 50%,#C9A43A 1.8px,transparent 2.3px),radial-gradient(circle at 50% 33%,#FFFDF6 2.6px,transparent 3.1px),radial-gradient(circle at 50% 67%,#FFFDF6 2.6px,transparent 3.1px),radial-gradient(circle at 33% 50%,#FFFDF6 2.6px,transparent 3.1px),radial-gradient(circle at 67% 50%,#FFFDF6 2.6px,transparent 3.1px);background-size:22px 22px}
+.kraft{background-color:#CDAA7D;background-image:radial-gradient(rgba(74,32,24,.09) 1px,transparent 1.4px);background-size:5px 5px}
+.tag-hole{position:absolute;left:13px;top:50%;width:11px;height:11px;margin-top:-5.5px;border-radius:50%;background:#4A2018;box-shadow:0 0 0 2px #FFFDF6}
+.sticker{filter:drop-shadow(0 6px 8px rgba(0,0,0,.25))}
+.btn-primary{background:#4A2018;color:#F7F0DC;box-shadow:4px 4px 0 #C9A43A}
+.btn-secondary{background:transparent;color:#4A2018}
+.btn-tag-in{position:relative;white-space:nowrap;display:inline-flex;align-items:center;min-height:46px;padding:0 24px 0 44px;background:#F3E9B5;color:#4A2018;font-family:'Courier Prime','Courier New',monospace;font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;clip-path:polygon(24px 0,100% 0,100% 100%,24px 100%,0 50%)}
+.tabs{display:flex;align-items:flex-end;gap:6px;list-style:none;margin:0;padding:0}
+.tab:hover{transform:translateY(-4px);color:#4A2018}
+.foot a{color:#F7F0DC;text-decoration:none;font-size:16px;line-height:1.5}
+.foot a:hover{color:#F3E9B5;text-decoration:underline;text-underline-offset:4px}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}

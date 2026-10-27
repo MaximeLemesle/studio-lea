@@ -1,0 +1,58 @@
+---
+import '@fontsource/josefin-sans/400.css';
+import '@fontsource/josefin-sans/600.css';
+import '@fontsource/josefin-sans/700.css';
+import '@fontsource-variable/dm-sans/opsz.css';
+import '@fontsource-variable/dm-sans/opsz-italic.css';
+import '@fontsource/courier-prime/400.css';
+import '@fontsource/courier-prime/700.css';
+import '@fontsource/courier-prime/400-italic.css';
+import '@fontsource/caveat/400.css';
+import '@fontsource/caveat/600.css';
+import '@fontsource/caveat/700.css';
+import '@fontsource/ms-madi/400.css';
+import '../styles/base.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MenuMobile from '../components/MenuMobile.astro';
+
+interface Props {
+  title: string;
+  /** Onglet actif du header : accueil, services, portfolio, a-propos (aucun sur les pages secondaires). */
+  active?: string | null;
+  /** Description pour les moteurs de recherche (à valider avec Léa avant la mise en ligne). */
+  description?: string;
+  footerSticker?: boolean;
+  bodyClass?: string;
+}
+const { title, active = null, description, footerSticker = true, bodyClass } = Astro.props;
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <meta name="theme-color" content="#4A2018" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="site">
+      <Header active={active} />
+      <main id="contenu" tabindex="-1">
+        <slot />
+      </main>
+      <Footer sticker={footerSticker} />
+    </div>
+    <MenuMobile active={active} />
+    <slot name="after" />
+    <script>
+      import '../scripts/main';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+---
+// Menu carnet mobile (planche Menu-mobile, M10 à M13).
+import Logo from './Logo.astro';
+import { NAV, SOCIAL } from '../lib/site';
+
+interface Props {
+  active?: string | null;
+}
+const { active = null } = Astro.props;
+const tops = [8, 10, 12, 10];
+---
+<dialog class="menu-carnet" id="menu-carnet" aria-label="Menu principal" data-menu>
+  <nav class="mc-page" aria-label="Menu principal">
+    <div class="mc-rings" aria-hidden="true">{Array.from({ length: 19 }, () => <span></span>)}</div>
+    <div class="mc-inner">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+        <p style="font-family:'Josefin Sans','Century Gothic',sans-serif;font-weight:700;font-size:22px;line-height:1"><Logo /></p>
+        <button class="mc-close" type="button" aria-label="Fermer le menu" data-menu-close>
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#4A2018" stroke-width="2.2" stroke-linecap="round"></path></svg>
+          Fermer
+        </button>
+      </div>
+
+      <div style="margin-top:26px;display:flex;align-items:baseline;gap:10px">
+        <p class="label" style="font-size:12px;letter-spacing:.16em">Sommaire</p>
+        <p class="script" aria-hidden="true" style="font-size:44px;line-height:1.05;transform:rotate(-4deg)">mon carnet</p>
+      </div>
+
+      <ul class="mc-list">
+        {NAV.map((item, i) => {
+          const isActive = item.key === active;
+          return (
+            <li style="position:relative">
+              <a class="mitem" href={item.href} aria-current={isActive ? 'page' : undefined}>
+                <span class="label" style="font-size:11px">{String(i + 1).padStart(2, '0')}</span>
+                <span class="mname">{item.label}{isActive && (
+                  <svg class="mc-underline" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 16 C60 6 120 20 180 10 S270 8 296 12" fill="none" stroke="#C9A43A" stroke-width="6" stroke-linecap="round"></path></svg>
+                )}</span>
+              </a>
+              <span class="ear" aria-hidden="true" style={`background:${isActive ? '#4A2018' : item.color};top:${tops[i]}px;--i:${i}`}></span>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px">
+        <a class="btn btn-primary mc-btn" href="/contact/">Me contacter</a>
+        <p class="spec" style="text-align:center">Réponse à votre demande de devis sous 24 h</p>
+        <div style="display:flex;justify-content:center;gap:22px">
+          <a class="mc-soc" href={SOCIAL.instagram}>Instagram</a>
+          <a class="mc-soc" href={SOCIAL.linkedin}>LinkedIn</a>
+        </div>
+      </div>
+
+      <div style="position:relative;margin-top:auto;height:70px;flex:none">
+        <div style="position:absolute;right:4px;bottom:0;width:140px;height:78px;transform:rotate(-6deg);filter:drop-shadow(0 5px 7px rgba(0,0,0,.22))" aria-hidden="true">
+          <svg width="140" height="78" viewBox="-6 -6 212 122"><path d="M50 95 C22 95 10 78 16 62 C4 52 14 30 34 34 C38 14 62 8 76 22 C86 4 120 4 128 24 C146 12 172 22 168 44 C190 48 192 78 170 86 C168 98 150 102 140 96 C126 106 100 106 90 98 C78 106 58 104 50 95 Z" fill="#FFFDF6" stroke="#FFFDF6" stroke-width="12" stroke-linejoin="round"></path><path d="M50 95 C22 95 10 78 16 62 C4 52 14 30 34 34 C38 14 62 8 76 22 C86 4 120 4 128 24 C146 12 172 22 168 44 C190 48 192 78 170 86 C168 98 150 102 140 96 C126 106 100 106 90 98 C78 106 58 104 50 95 Z" fill="#EFC9D2" stroke="#4A2018" stroke-width="1.6"></path></svg>
+          <span class="note" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#4A2018;padding-top:4px">creative mode</span>
+        </div>
+        <p class="note" style="position:absolute;left:0;bottom:6px;font-size:20px">à très vite !</p>
+      </div>
+    </div>
+  </nav>
+</dialog>

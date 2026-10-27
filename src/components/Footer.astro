@@ -1,0 +1,43 @@
+---
+// Footer identique sur tout le site (M9 : 1 colonne puis 2 sur mobile).
+import Logo from './Logo.astro';
+import { SOCIAL } from '../lib/site';
+
+interface Props {
+  sticker?: boolean;
+}
+const { sticker = true } = Astro.props;
+---
+<footer class={`foot dark site-footer${sticker ? '' : ' no-sticker'}`} style="position:relative;background:#4A2018;color:#F7F0DC">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand" style="display:flex;flex-direction:column;gap:10px">
+        <p class="ft-logo" style="display:flex;align-items:center;gap:8px;font-family:'Josefin Sans','Century Gothic',sans-serif;font-weight:700;font-size:34px;line-height:1"><Logo /></p>
+        <p class="label" style="font-size:11px;color:#F3E9B5;white-space:nowrap">Léa Audouin · communication</p>
+        <p class="small" style="max-width:280px">Une communication qui vous ressemble, pour les entreprises et indépendants partout en France, depuis Angers.</p>
+      </div>
+      <nav class="ft-col" aria-label="Pied de page">
+        <p class="label ft-title">Navigation</p>
+        <ul><li><a href="/">Accueil</a></li><li><a href="/services/">Services</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/a-propos/">À propos</a></li><li><a href="/contact/">Contact</a></li></ul>
+      </nav>
+      <div class="ft-col">
+        <p class="label ft-title">Services</p>
+        <ul><li><a href="/services/community-management/">Community management</a></li><li><a href="/services/audit-strategique/">Audit stratégique</a></li><li><a href="/services/graphisme/"><span class="d-only">Graphisme print et digital</span><span class="m-only">Graphisme</span></a></li><li><a href="/services/redactionnel/">Rédactionnel</a></li><li><a href="/services/ugc/">UGC</a></li></ul>
+      </div>
+      <div class="ft-col ft-contact">
+        <p class="label ft-title"><span class="d-only">Contact</span><span class="m-only">Contact et réseaux</span></p>
+        <ul><li><a href="/contact/">Formulaire de contact</a></li><li class="d-only"><span style="font-size:16px">Angers · Maine-et-Loire (49)</span></li></ul>
+        <p class="label ft-title d-only" style="margin-top:6px">Réseaux</p>
+        <ul><li><a href={SOCIAL.instagram}>Instagram</a></li><li><a href={SOCIAL.linkedin}>LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="spec">© 2026 Studio Béa — Léa Audouin</p>
+      <div class="ft-legal"><a href="/mentions-legales/" style="font-size:14px">Mentions légales</a><a href="/confidentialite/" style="font-size:14px">Politique de confidentialité</a></div>
+    </div>
+    <div class="sticker ft-sticker" data-anim="sticker">
+      <svg viewBox="-6 -6 212 122" aria-hidden="true"><path d="M50 95 C22 95 10 78 16 62 C4 52 14 30 34 34 C38 14 62 8 76 22 C86 4 120 4 128 24 C146 12 172 22 168 44 C190 48 192 78 170 86 C168 98 150 102 140 96 C126 106 100 106 90 98 C78 106 58 104 50 95 Z" fill="#FFFDF6" stroke="#FFFDF6" stroke-width="12" stroke-linejoin="round"></path><path d="M50 95 C22 95 10 78 16 62 C4 52 14 30 34 34 C38 14 62 8 76 22 C86 4 120 4 128 24 C146 12 172 22 168 44 C190 48 192 78 170 86 C168 98 150 102 140 96 C126 106 100 106 90 98 C78 106 58 104 50 95 Z" fill="#F3E9B5" stroke="#4A2018" stroke-width="1.6"></path></svg>
+      <span class="note">made with love</span>
+    </div>
+  </div>
+</footer>

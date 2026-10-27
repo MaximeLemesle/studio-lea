@@ -1,0 +1,42 @@
+---
+// Header classeur (desktop) et header collant avec bouton « Menu » (mobile, M1/M2).
+import Logo from './Logo.astro';
+import { NAV } from '../lib/site';
+
+interface Props {
+  active?: string | null;
+}
+const { active = null } = Astro.props;
+---
+<header class="site-header" data-header>
+  <div class="wrap hd-row">
+    <a class="hd-logo" href="/" aria-label="Studio Béa, retour à l'accueil">
+      <span class="hd-word"><Logo /></span>
+      <span class="label hd-tagline">Léa Audouin · communication</span>
+    </a>
+    <nav class="hd-nav" aria-label="Navigation principale">
+      <ul class="tabs">
+        {NAV.map((item) => (
+          <li>
+            <a
+              class="tab"
+              href={item.href}
+              aria-current={item.key === active ? 'page' : undefined}
+              style={item.key === active ? undefined : `background:${item.color}`}
+            >{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="hd-cta"><a class="btn-tag" href="/contact/"><span class="btn-tag-in"><span class="tag-hole" style="left:15px"></span>Me contacter</span></a></div>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-carnet" data-menu-open>
+      <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M1 1.5 H19 M1 7 H15 M1 12.5 H19" stroke="#F7F0DC" stroke-width="2" stroke-linecap="round"></path></svg>
+      Menu
+    </button>
+  </div>
+  <div class="hd-strip" aria-hidden="true">
+    {NAV.map((item) => (
+      <span class={item.key === active ? 'on' : undefined} style={item.key === active ? undefined : `background:${item.color}`}></span>
+    ))}
+  </div>
+</header>
