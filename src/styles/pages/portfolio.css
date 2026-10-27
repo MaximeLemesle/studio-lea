@@ -33,3 +33,80 @@ a:focus-visible,button:focus-visible{outline:3px solid #4A2018;outline-offset:4p
 .vid{position:relative;background:#FFFDF6;border-radius:22px;padding:10px;box-shadow:0 18px 34px rgba(0,0,0,.35)}
 .vid .ph{border-radius:14px;aspect-ratio:9/16;flex-direction:column;gap:14px}
 .play{width:62px;height:62px;border-radius:50%;background:rgba(74,32,24,.88);display:flex;align-items:center;justify-content:center}
+
+/* ==========================================================================
+   Portfolio — ajouts du site (filtres animés, tablette, mobile)
+   ========================================================================== */
+.filters .tab { cursor: pointer; }
+.filters .tab[aria-pressed="true"] { min-height: 58px; transform: none; }
+.wall-item[hidden] { display: none; }
+.wall-item > a .polaroid { transition: transform .3s ease; }
+@media (hover: hover) { .wall-item > a:hover .polaroid { transform: rotate(0deg) !important; } }
+@media (prefers-reduced-motion: no-preference) {
+  .wall-item.is-leaving { animation: fly-away .45s ease-in forwards; pointer-events: none; }
+  .wall-item.is-landing { animation: drop .8s cubic-bezier(.3, .7, .3, 1) both; }
+}
+.pf-more[hidden] { display: none !important; }
+.vid .ph .a-completer { font-size: 11px; }
+
+@media (max-width: 1100px) and (min-width: 721px) {
+  .pf-carnet { margin-left: 160px !important; }
+  .wall { columns: 2 280px; }
+  .filters { flex-wrap: wrap; }
+}
+
+@media (max-width: 720px) {
+  html .pf-hero { padding: 30px 0 0 !important; }
+  html .pf-hero-grid { display: block !important; padding-bottom: 0 !important; }
+  .pf-hero-grid > div:first-child { gap: 0 !important; }
+  .pf-h1 { margin-top: 16px !important; }
+  html .pf-carnet { font-size: 46px !important; text-align: right; margin: 0 2px 0 0 !important; }
+  html .pf-filterbar { display: grid !important; grid-template-columns: 1fr auto; align-items: baseline !important; gap: 0 !important; margin-top: 24px; }
+  .pf-filtrer { display: block !important; }
+  html .pf-count { padding-bottom: 0 !important; }
+  html .filters { grid-column: 1 / -1; margin: 6px -20px 0 !important; padding: 4px 20px 0 !important; gap: 8px !important; overflow-x: auto; scrollbar-width: none; flex-wrap: nowrap; }
+  .filters::-webkit-scrollbar { display: none; }
+  html .filters .tab { flex: none; min-height: 44px; padding: 0 16px; font-size: 12px; letter-spacing: .12em; }
+  html .filters .tab[aria-pressed="true"] { min-height: 44px; background: #F7F0DC; background-image: none; }
+
+  html .pf-wall-sec { padding: 30px 0 56px !important; }
+  .pf-wall-sec > .wrap { padding: 0 16px; }
+  .pf-legend { display: block !important; font-size: 12px; margin-bottom: 14px; }
+  .pf-legend .svc { margin: 0 2px; }
+  html .wall { columns: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 20px; align-items: start; }
+  html .wall-item { margin: 0; padding-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+  html .wall-item .polaroid { padding: 7px 7px 34px; }
+  html .wall-item .polaroid .washi { width: 64px !important; height: 20px; top: -10px !important; }
+  html .wall-item .polaroid-cap { font-size: 18px !important; bottom: 6px !important; line-height: 1.05; padding: 0 4px; }
+  html .wall .flags { right: -12px; top: 22px; gap: 4px; }
+  html .wall .flags span { width: 12px; height: 28px; border-radius: 0 5px 5px 0; border-width: 1.2px; }
+  html .wall-meta { margin-top: 0; padding: 0; flex-direction: column; align-items: flex-start; gap: 4px; }
+  html .wall .svcs { gap: 4px; }
+  html .wall .svc, .pf-legend .svc { padding: 3px 7px; font-size: 10px; letter-spacing: .08em; }
+  .pf-detail { display: block !important; font-size: 12px; }
+  .pf-more { margin-top: 30px !important; }
+  .pf-more .btn { width: 100%; }
+
+  html .pf-videos { padding: 56px 0 60px !important; }
+  .pf-videos > .wrap { padding: 0 !important; }
+  html .pf-videos-head { display: block !important; padding: 0 20px; margin-bottom: 0 !important; }
+  .pf-videos-head > div { gap: 6px !important; }
+  html .pf-videos .h2 { font-size: 30px !important; }
+  html .pf-envrai { font-size: 44px !important; text-align: right; margin: 0 6px 0 0 !important; transform: rotate(-6deg) !important; }
+  html .pf-vid-track { display: flex !important; gap: 22px !important; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 30px 20px 22px; max-width: none !important; }
+  .pf-vid-track::-webkit-scrollbar { display: none; }
+  html .pf-vid { flex: 0 0 168px; margin: 0 !important; gap: 10px !important; scroll-snap-align: center; }
+  html .pf-vid .vid { padding: 8px; border-radius: 0; }
+  html .pf-vid .vid .ph { border-radius: 0; gap: 8px; }
+  html .pf-vid .play { width: 40px; height: 40px; }
+  html .pf-vid .washi { width: 76px !important; height: 22px; top: -11px !important; }
+  html .pf-vid .note { font-size: 20px !important; }
+  .pf-videos .pager { display: flex !important; justify-content: center; gap: 8px; }
+  .pf-videos .pager span { width: 8px; height: 8px; border-radius: 50%; background: rgba(247,240,220,.35); }
+  .pf-videos .pager span.on { width: 22px; border-radius: 4px; background: #F3E9B5; }
+}
+@media (max-width: 720px) {
+  .pf-filtrer { grid-column: 1; grid-row: 1; }
+  html .pf-count { grid-column: 2; grid-row: 1; }
+  html .filters { grid-row: 2; }
+}

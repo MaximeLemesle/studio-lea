@@ -1,0 +1,68 @@
+---
+// Fiche projet « Nutraclear » (maquette Projet-Nutraclear.dc.html). Généré par tools/projets.py, puis relu.
+import Img from '../Img.astro';
+import { img } from '../../lib/images';
+
+interface Props {
+  /** Fiche affichée d'emblée (page /portfolio/<projet>/). */
+  open?: boolean;
+}
+const { open = false } = Astro.props;
+---
+<dialog class="fiche" id="fiche-nutraclear" aria-labelledby="titre-nutraclear" data-fiche="nutraclear" data-index="4" open={open} data-open-on-load={open ? '' : undefined}>
+  <section class="vbox">
+    <div class="washi washi-plain f-washi1" style="width:120px;top:-15px;left:70px;transform:rotate(-4deg)"></div>
+    <div class="washi washi-dots f-washi2" style="width:120px;top:-15px;right:90px;transform:rotate(3deg)"></div>
+    <div class="f-grab" aria-hidden="true"></div>
+
+    <div class="f-head">
+      <div class="f-head-txt">
+        <p class="label f-index">Portfolio · projet 4 / 13</p>
+        <h2 id="titre-nutraclear" class="h2 f-title" style="font-size:48px">Nutraclear</h2>
+        <p class="script f-script m-only" aria-hidden="true">en coulisses</p>
+      </div>
+      <button class="vclose" type="button" data-fiche-close aria-label="Fermer la fiche projet"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#4A2018" stroke-width="2.2" stroke-linecap="round"></path></svg>Fermer</button>
+    </div>
+
+    <div class="f-grid">
+      <div class="f-left">
+        <div class="polaroid f-cover" style="transform:rotate(-2.5deg)">
+          <div class="washi washi-floral" style="width:110px;top:-14px;left:50%;margin-left:-55px;transform:rotate(3deg)"></div>
+          <Img src="projet-nutraclear.jpg" alt="Léa présente les compléments Nutraclear" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover" sizes="(max-width: 720px) 330px, 360px" />
+          <p class="polaroid-cap">Nutraclear</p>
+        </div>
+        <dl class="f-meta" style="margin:0;display:flex;flex-direction:column;gap:14px">
+          <div class="f-svcs"><dt class="label" style="font-size:11px">Services</dt><dd style="margin:8px 0 0" class="svcs"><span class="svc" style="background:#F2E3A0">Community management</span><span class="svc" style="background:#F4D3B8">UGC</span></dd></div>
+        </dl>
+      </div>
+      <div class="f-right">
+        <ul class="vtabs" role="tablist" aria-label="Services réalisés pour ce client">
+          <li role="presentation"><button class="vtab" type="button" role="tab" id="tab-nutraclear-cm" aria-controls="panel-nutraclear-cm" aria-selected="true" tabindex="0" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></button></li>
+          <li role="presentation"><button class="vtab" type="button" role="tab" id="tab-nutraclear-ugc" aria-controls="panel-nutraclear-ugc" aria-selected="false" tabindex="-1" style="background:#F4D3B8">UGC</button></li>
+        </ul>
+        <div class="vpanel dots" role="tabpanel" id="panel-nutraclear-cm" aria-labelledby="tab-nutraclear-cm" style="background-color:#F2E3A0">
+          <div class="vsheet"><p class="label" style="font-size:11px"><span class="m-only">Community management · </span>Ce que j'ai fait</p>
+            <p class="body" style="max-width:640px">J'ai géré les réseaux sociaux de Nutraclear sur Facebook, LinkedIn, Instagram et TikTok. J'ai créé et publié les contenus, avec un feed cohérent qui met en avant chaque complément. J'ai aussi assuré la gestion d'influence.</p>
+            <p class="label" style="font-size:11px;margin-top:6px">Exemples</p>
+            <div class="ex-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;padding:4px 6px 6px">
+              <figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("services-cm.jpg")} aria-label="Agrandir : Feed Instagram réalisé pour Nutraclear"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-2deg)"><Img src="services-cm.jpg" alt="Feed Instagram réalisé pour Nutraclear" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">le feed</p></div></button></figure><figure style="margin:0;display:flex;flex-direction:column;gap:12px"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-nutraclear-post1.jpg")} aria-label="Agrandir : Publication Instagram Nutraclear : Collagène marin"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(1.5deg)"><Img src="pj-nutraclear-post1.jpg" alt="Publication Instagram Nutraclear : Collagène marin" style="display:block;width:100%;aspect-ratio:1179/2556;object-fit:cover" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">exemple de post</p></div></button><a class="link" href="https://www.instagram.com/p/Db0ERdogUYm/" target="_blank" rel="noopener" style="font-size:11px;align-self:center">Voir le post ↗</a></figure><figure style="margin:0;display:flex;flex-direction:column;gap:12px"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-nutraclear-post2.jpg")} aria-label="Agrandir : Publication Instagram Nutraclear : Complexe Peau et Zinc"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-1deg)"><Img src="pj-nutraclear-post2.jpg" alt="Publication Instagram Nutraclear : Complexe Peau et Zinc" style="display:block;width:100%;aspect-ratio:1179/2556;object-fit:cover" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">exemple de post</p></div></button><a class="link" href="https://www.instagram.com/p/DZ1yj4vDtcm/" target="_blank" rel="noopener" style="font-size:11px;align-self:center">Voir le post ↗</a></figure>
+            </div></div>
+        </div>
+        <div class="vpanel dots" role="tabpanel" id="panel-nutraclear-ugc" aria-labelledby="tab-nutraclear-ugc" style="background-color:#F4D3B8" hidden>
+          <div class="vsheet"><p class="label" style="font-size:11px"><span class="m-only">UGC · </span>Ce que j'ai fait</p>
+            <p class="body" style="max-width:640px">J'ai tourné des vidéos UGC pour présenter les compléments Nutraclear, face caméra et produit en main.</p>
+            <p class="label" style="font-size:11px;margin-top:6px">Exemples</p>
+            <div class="ex-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;padding:4px 6px 6px">
+              <figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("ugc-nutraclear.jpg")} aria-label="Agrandir : Vidéo UGC Nutraclear"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-2deg)"><Img src="ugc-nutraclear.jpg" alt="Vidéo UGC Nutraclear" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover" sizes="(max-width: 720px) 132px, 240px" /></div></button></figure><figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("services-ugc.jpg")} aria-label="Agrandir : Vidéo UGC Nutraclear : complément Mélatonine+"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(1.5deg)"><Img src="services-ugc.jpg" alt="Vidéo UGC Nutraclear : complément Mélatonine+" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover" sizes="(max-width: 720px) 132px, 240px" /></div></button></figure>
+            </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-nav">
+      <a class="vnav f-prev" href="/portfolio/liquide-imaginaire/" data-projet="liquide-imaginaire" data-fiche-nav="prev"><svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M17 7 H2 M7 1 L1 7 L7 13" fill="none" stroke="#4A2018" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="d-only">Précédent</span><span class="nm">Liquide Imaginaire</span></a>
+      <a class="btn btn-primary f-cta" href="/contact/"><span class="d-only">Un projet similaire ? Écrivez-moi</span><span class="m-only">Un projet similaire ?</span></a>
+      <a class="vnav f-next" href="/portfolio/fitadium/" data-projet="fitadium" data-fiche-nav="next"><span class="nm">Fitadium</span><span class="d-only">Suivant</span><svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M1 7 H16 M11 1 L17 7 L11 13" fill="none" stroke="#4A2018" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+  </section>
+</dialog>

@@ -1,0 +1,77 @@
+---
+// Fiche projet « Salon des Pêches » (maquette Projet-Salon-des-Peches.dc.html). Généré par tools/projets.py, puis relu.
+import Img from '../Img.astro';
+import { img } from '../../lib/images';
+
+interface Props {
+  /** Fiche affichée d'emblée (page /portfolio/<projet>/). */
+  open?: boolean;
+}
+const { open = false } = Astro.props;
+---
+<dialog class="fiche" id="fiche-salon-des-peches" aria-labelledby="titre-salon-des-peches" data-fiche="salon-des-peches" data-index="2" open={open} data-open-on-load={open ? '' : undefined}>
+  <section class="vbox">
+    <div class="washi washi-plain f-washi1" style="width:120px;top:-15px;left:70px;transform:rotate(-4deg)"></div>
+    <div class="washi washi-dots f-washi2" style="width:120px;top:-15px;right:90px;transform:rotate(3deg)"></div>
+    <div class="f-grab" aria-hidden="true"></div>
+
+    <div class="f-head">
+      <div class="f-head-txt">
+        <p class="label f-index">Portfolio · projet 2 / 13</p>
+        <h2 id="titre-salon-des-peches" class="h2 f-title" style="font-size:48px">Salon des Pêches</h2>
+        <p class="script f-script m-only" aria-hidden="true">en coulisses</p>
+      </div>
+      <button class="vclose" type="button" data-fiche-close aria-label="Fermer la fiche projet"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#4A2018" stroke-width="2.2" stroke-linecap="round"></path></svg>Fermer</button>
+    </div>
+
+    <div class="f-grid">
+      <div class="f-left">
+        <div class="polaroid f-cover" style="transform:rotate(-2.5deg)">
+          <div class="washi washi-floral" style="width:110px;top:-14px;left:50%;margin-left:-55px;transform:rotate(3deg)"></div>
+          <Img src="projet-salon-peches.jpg" alt="Équipe du Salon des Pêches devant le stand" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover" sizes="(max-width: 720px) 330px, 360px" />
+          <p class="polaroid-cap">Salon des Pêches</p>
+        </div>
+        <dl class="f-meta" style="margin:0;display:flex;flex-direction:column;gap:14px">
+          <div class="f-client"><dt class="label" style="font-size:11px">Client<span class="m-only"> :</span></dt><dd style="margin:4px 0 0;font-size:18px">Royan et Saint-Étienne</dd></div><div class="f-svcs"><dt class="label" style="font-size:11px">Services</dt><dd style="margin:8px 0 0" class="svcs"><span class="svc" style="background:#F2E3A0">Community management</span><span class="svc" style="background:#CFE3C4">Rédactionnel</span><span class="svc" style="background:#F4D3B8">UGC</span></dd></div>
+        </dl>
+      </div>
+      <div class="f-right">
+        <ul class="vtabs" role="tablist" aria-label="Services réalisés pour ce client">
+          <li role="presentation"><button class="vtab" type="button" role="tab" id="tab-salon-des-peches-cm" aria-controls="panel-salon-des-peches-cm" aria-selected="true" tabindex="0" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></button></li>
+          <li role="presentation"><button class="vtab" type="button" role="tab" id="tab-salon-des-peches-redac" aria-controls="panel-salon-des-peches-redac" aria-selected="false" tabindex="-1" style="background:#CFE3C4">Rédactionnel</button></li>
+          <li role="presentation"><button class="vtab" type="button" role="tab" id="tab-salon-des-peches-ugc" aria-controls="panel-salon-des-peches-ugc" aria-selected="false" tabindex="-1" style="background:#F4D3B8">UGC</button></li>
+        </ul>
+        <div class="vpanel dots" role="tabpanel" id="panel-salon-des-peches-cm" aria-labelledby="tab-salon-des-peches-cm" style="background-color:#F2E3A0">
+          <div class="vsheet"><p class="label" style="font-size:11px"><span class="m-only">Community management · </span>Ce que j'ai fait</p>
+            <p class="body" style="max-width:640px">J'ai géré les réseaux sociaux de deux salons différents : le Salon des Pêches de Royan et celui de Saint-Étienne. Sur Instagram, LinkedIn et Facebook, j'ai créé, planifié et publié les contenus. J'ai aussi suivi la communauté avant et pendant chaque salon. Enfin, j'ai assuré la gestion d'influence pour les deux salons.</p>
+            <p class="label" style="font-size:11px;margin-top:6px">Exemples</p>
+            <div class="ex-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;padding:4px 6px 6px">
+              <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-salon-cm-merci.jpg")} aria-label="Agrandir : Reel du Salon des Pêches de Saint-Étienne"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-2deg)"><Img src="pj-salon-cm-merci.jpg" alt="Reel du Salon des Pêches de Saint-Étienne" style="display:block;width:100%;aspect-ratio:1179/2556;object-fit:cover" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">Saint-Étienne</p></div></button><a class="link" href="https://www.instagram.com/p/DUK5qk2Aprw/" target="_blank" rel="noopener" style="font-size:11px;align-self:center">Voir le post ↗</a></figure><figure style="margin:0;display:flex;flex-direction:column;gap:12px"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-salon-cm-tshirt.jpg")} aria-label="Agrandir : Reel du Salon des Pêches de Royan"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(1.5deg)"><Img src="pj-salon-cm-tshirt.jpg" alt="Reel du Salon des Pêches de Royan" style="display:block;width:100%;aspect-ratio:1179/2556;object-fit:cover" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">Royan</p></div></button><a class="link" href="https://www.instagram.com/p/DITvZu5sSZC/" target="_blank" rel="noopener" style="font-size:11px;align-self:center">Voir le post ↗</a></figure><figure style="margin:0;display:flex;flex-direction:column;gap:12px"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-salon-cm-carrousel.jpg")} aria-label="Agrandir : Carrousel « Retour en images » du Salon des Pêches de Royan"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-1deg)"><Img src="pj-salon-cm-carrousel.jpg" alt="Carrousel « Retour en images » du Salon des Pêches de Royan" style="display:block;width:100%;aspect-ratio:1179/2556;object-fit:cover" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">Royan</p></div></button><a class="link" href="https://www.instagram.com/p/DXlzhUMjbNK/" target="_blank" rel="noopener" style="font-size:11px;align-self:center">Voir le post ↗</a></figure>
+            </div></div>
+        </div>
+        <div class="vpanel dots" role="tabpanel" id="panel-salon-des-peches-redac" aria-labelledby="tab-salon-des-peches-redac" style="background-color:#CFE3C4" hidden>
+          <div class="vsheet"><p class="label" style="font-size:11px"><span class="m-only">Rédactionnel · </span>Ce que j'ai fait</p>
+            <p class="body" style="max-width:640px">J'ai rédigé les communiqués de presse et les newsletters du salon, comme l'annonce du partenariat avec RMC Découverte.</p>
+            <p class="label" style="font-size:11px;margin-top:6px">Exemples</p>
+            <div class="ex-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;padding:4px 6px 6px">
+              <figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-salon-cp-rmc.jpg")} aria-label="Agrandir : Communiqué de presse : RMC Découverte partenaire du Salon des Pêches"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-2deg)"><Img src="pj-salon-cp-rmc.jpg" alt="Communiqué de presse : RMC Découverte partenaire du Salon des Pêches" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">communiqué</p></div></button></figure><figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("redac-newsletters.jpg")} aria-label="Agrandir : Newsletters rédigées pour le Salon des Pêches"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(1.5deg)"><Img src="redac-newsletters.jpg" alt="Newsletters rédigées pour le Salon des Pêches" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">newsletters</p></div></button></figure>
+            </div></div>
+        </div>
+        <div class="vpanel dots" role="tabpanel" id="panel-salon-des-peches-ugc" aria-labelledby="tab-salon-des-peches-ugc" style="background-color:#F4D3B8" hidden>
+          <div class="vsheet"><p class="label" style="font-size:11px"><span class="m-only">UGC · </span>Ce que j'ai fait</p>
+            <p class="body" style="max-width:640px">J'ai tourné des vidéos face caméra pour faire connaître le salon.</p>
+            <p class="label" style="font-size:11px;margin-top:6px">Exemples</p>
+            <div class="ex-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;padding:4px 6px 6px">
+              <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-salon-ugc-1.jpg")} aria-label="Agrandir : Vidéo UGC face caméra pour le Salon des Pêches de Saint-Étienne"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-2deg)"><Img src="pj-salon-ugc-1.jpg" alt="Vidéo UGC face caméra pour le Salon des Pêches de Saint-Étienne" style="display:block;width:100%;aspect-ratio:1179/2556;object-fit:cover" sizes="(max-width: 720px) 132px, 240px" /></div></button><a class="link" href="https://www.instagram.com/p/DdrR5BqiYQ8/" target="_blank" rel="noopener" style="font-size:11px;align-self:center">Voir le post ↗</a></figure><figure style="margin:0;display:flex;flex-direction:column;gap:12px"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-salon-ugc-2.jpg")} aria-label="Agrandir : Vidéo UGC au bord de la mer pour le Salon des Pêches de Saint-Étienne"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(1.5deg)"><Img src="pj-salon-ugc-2.jpg" alt="Vidéo UGC au bord de la mer pour le Salon des Pêches de Saint-Étienne" style="display:block;width:100%;aspect-ratio:1179/2556;object-fit:cover" sizes="(max-width: 720px) 132px, 240px" /></div></button><a class="link" href="https://www.instagram.com/p/DRAOxADAsNC/" target="_blank" rel="noopener" style="font-size:11px;align-self:center">Voir le post ↗</a></figure>
+            </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-nav">
+      <a class="vnav f-prev" href="/portfolio/medusor/" data-projet="medusor" data-fiche-nav="prev"><svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M17 7 H2 M7 1 L1 7 L7 13" fill="none" stroke="#4A2018" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="d-only">Précédent</span><span class="nm">Médusor</span></a>
+      <a class="btn btn-primary f-cta" href="/contact/"><span class="d-only">Un projet similaire ? Écrivez-moi</span><span class="m-only">Un projet similaire ?</span></a>
+      <a class="vnav f-next" href="/portfolio/liquide-imaginaire/" data-projet="liquide-imaginaire" data-fiche-nav="next"><span class="nm">Liquide Imaginaire</span><span class="d-only">Suivant</span><svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M1 7 H16 M11 1 L17 7 L11 13" fill="none" stroke="#4A2018" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+  </section>
+</dialog>

@@ -1,0 +1,59 @@
+---
+// Fiche projet « Oui à la Qualité en Pays de la Loire » (maquette Projet-Oui-a-la-Qualite.dc.html). Généré par tools/projets.py, puis relu.
+import Img from '../Img.astro';
+import { img } from '../../lib/images';
+
+interface Props {
+  /** Fiche affichée d'emblée (page /portfolio/<projet>/). */
+  open?: boolean;
+}
+const { open = false } = Astro.props;
+---
+<dialog class="fiche" id="fiche-oui-a-la-qualite" aria-labelledby="titre-oui-a-la-qualite" data-fiche="oui-a-la-qualite" data-index="7" open={open} data-open-on-load={open ? '' : undefined}>
+  <section class="vbox">
+    <div class="washi washi-plain f-washi1" style="width:120px;top:-15px;left:70px;transform:rotate(-4deg)"></div>
+    <div class="washi washi-dots f-washi2" style="width:120px;top:-15px;right:90px;transform:rotate(3deg)"></div>
+    <div class="f-grab" aria-hidden="true"></div>
+
+    <div class="f-head">
+      <div class="f-head-txt">
+        <p class="label f-index">Portfolio · projet 7 / 13</p>
+        <h2 id="titre-oui-a-la-qualite" class="h2 f-title" style="font-size:40px">Oui à la Qualité en Pays de la Loire</h2>
+        <p class="script f-script m-only" aria-hidden="true">en coulisses</p>
+      </div>
+      <button class="vclose" type="button" data-fiche-close aria-label="Fermer la fiche projet"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#4A2018" stroke-width="2.2" stroke-linecap="round"></path></svg>Fermer</button>
+    </div>
+
+    <div class="f-grid">
+      <div class="f-left">
+        <div class="polaroid f-cover" style="transform:rotate(-2.5deg)">
+          <div class="washi washi-floral" style="width:110px;top:-14px;left:50%;margin-left:-55px;transform:rotate(3deg)"></div>
+          <Img src="projet-oui-qualite.jpg" alt="Projet Oui à la Qualité en Pays de la Loire" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover" sizes="(max-width: 720px) 330px, 360px" />
+          <p class="polaroid-cap" style="font-size:17px">Oui à la Qualité en Pays de la Loire</p>
+        </div>
+        <dl class="f-meta" style="margin:0;display:flex;flex-direction:column;gap:14px">
+          <div class="f-svcs"><dt class="label" style="font-size:11px">Services</dt><dd style="margin:8px 0 0" class="svcs"><span class="svc" style="background:#F2E3A0">Community management</span></dd></div>
+        </dl>
+      </div>
+      <div class="f-right">
+        <ul class="vtabs" role="tablist" aria-label="Services réalisés pour ce client">
+          <li role="presentation"><button class="vtab" type="button" role="tab" id="tab-oui-a-la-qualite-cm" aria-controls="panel-oui-a-la-qualite-cm" aria-selected="true" tabindex="0" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></button></li>
+        </ul>
+        <div class="vpanel dots" role="tabpanel" id="panel-oui-a-la-qualite-cm" aria-labelledby="tab-oui-a-la-qualite-cm" style="background-color:#F2E3A0">
+          <div class="vsheet"><p class="label" style="font-size:11px"><span class="m-only">Community management · </span>Ce que j'ai fait</p>
+            <p class="body" style="max-width:640px">J'ai animé les réseaux sociaux de Oui à la Qualité en Pays de la Loire sur Instagram, Facebook et LinkedIn : création des contenus, planification et publication.</p>
+            <p class="label" style="font-size:11px;margin-top:6px">Exemples</p>
+            <div class="ex-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;padding:4px 6px 6px">
+              <figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-oui-linkedin.jpg")} aria-label="Agrandir : Post LinkedIn de Oui à la Qualité en Pays de la Loire"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-2deg)"><Img src="pj-oui-linkedin.jpg" alt="Post LinkedIn de Oui à la Qualité en Pays de la Loire" style="display:block;width:100%;aspect-ratio:1130/1724;object-fit:cover" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">exemple de post</p></div></button></figure>
+            </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-nav">
+      <a class="vnav f-prev" href="/portfolio/ap-ressources-humaines/" data-projet="ap-ressources-humaines" data-fiche-nav="prev"><svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M17 7 H2 M7 1 L1 7 L7 13" fill="none" stroke="#4A2018" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="d-only">Précédent</span><span class="nm">AP Ressources Humaines</span></a>
+      <a class="btn btn-primary f-cta" href="/contact/"><span class="d-only">Un projet similaire ? Écrivez-moi</span><span class="m-only">Un projet similaire ?</span></a>
+      <a class="vnav f-next" href="/portfolio/aline-lemesle/" data-projet="aline-lemesle" data-fiche-nav="next"><span class="nm">Aline Lemesle</span><span class="d-only">Suivant</span><svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M1 7 H16 M11 1 L17 7 L11 13" fill="none" stroke="#4A2018" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+  </section>
+</dialog>

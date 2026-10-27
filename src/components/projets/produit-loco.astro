@@ -1,0 +1,59 @@
+---
+// Fiche projet « Produit Loco » (maquette Projet-Produit-Loco.dc.html). Généré par tools/projets.py, puis relu.
+import Img from '../Img.astro';
+import { img } from '../../lib/images';
+
+interface Props {
+  /** Fiche affichée d'emblée (page /portfolio/<projet>/). */
+  open?: boolean;
+}
+const { open = false } = Astro.props;
+---
+<dialog class="fiche" id="fiche-produit-loco" aria-labelledby="titre-produit-loco" data-fiche="produit-loco" data-index="12" open={open} data-open-on-load={open ? '' : undefined}>
+  <section class="vbox">
+    <div class="washi washi-plain f-washi1" style="width:120px;top:-15px;left:70px;transform:rotate(-4deg)"></div>
+    <div class="washi washi-dots f-washi2" style="width:120px;top:-15px;right:90px;transform:rotate(3deg)"></div>
+    <div class="f-grab" aria-hidden="true"></div>
+
+    <div class="f-head">
+      <div class="f-head-txt">
+        <p class="label f-index">Portfolio · projet 12 / 13</p>
+        <h2 id="titre-produit-loco" class="h2 f-title" style="font-size:48px">Produit Loco</h2>
+        <p class="script f-script m-only" aria-hidden="true">en coulisses</p>
+      </div>
+      <button class="vclose" type="button" data-fiche-close aria-label="Fermer la fiche projet"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#4A2018" stroke-width="2.2" stroke-linecap="round"></path></svg>Fermer</button>
+    </div>
+
+    <div class="f-grid">
+      <div class="f-left">
+        <div class="polaroid f-cover" style="transform:rotate(-2.5deg)">
+          <div class="washi washi-floral" style="width:110px;top:-14px;left:50%;margin-left:-55px;transform:rotate(3deg)"></div>
+          <Img src="pf-produit-loco.jpg" alt="Packaging réalisé pour Produit Loco" style="display:block;width:100%;aspect-ratio:5/4;object-fit:cover" sizes="(max-width: 720px) 330px, 360px" />
+          <p class="polaroid-cap">Produit Loco</p>
+        </div>
+        <dl class="f-meta" style="margin:0;display:flex;flex-direction:column;gap:14px">
+          <div class="f-svcs"><dt class="label" style="font-size:11px">Services</dt><dd style="margin:8px 0 0" class="svcs"><span class="svc" style="background:#EFC9D2">Graphisme · identité visuelle</span></dd></div>
+        </dl>
+      </div>
+      <div class="f-right">
+        <ul class="vtabs" role="tablist" aria-label="Services réalisés pour ce client">
+          <li role="presentation"><button class="vtab" type="button" role="tab" id="tab-produit-loco-graphisme" aria-controls="panel-produit-loco-graphisme" aria-selected="true" tabindex="0" style="background:#EFC9D2">Graphisme</button></li>
+        </ul>
+        <div class="vpanel dots" role="tabpanel" id="panel-produit-loco-graphisme" aria-labelledby="tab-produit-loco-graphisme" style="background-color:#EFC9D2">
+          <div class="vsheet"><p class="label" style="font-size:11px"><span class="m-only">Graphisme · </span>Ce que j'ai fait</p>
+            <p class="body" style="max-width:640px">J'ai créé toute l'identité visuelle de Produit Loco et ses déclinaisons : affiche, flyer, kakemono, magazine et cartes de visite.</p>
+            <p class="label" style="font-size:11px;margin-top:6px">Exemples</p>
+            <div class="ex-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;padding:4px 6px 6px">
+              <figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-loco-affiche.jpg")} aria-label="Agrandir : Affiche Produit Loco sur un abribus"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-2deg)"><Img src="pj-loco-affiche.jpg" alt="Affiche Produit Loco sur un abribus" style="display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#F3EEDF;padding:10px" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">l'affiche</p></div></button></figure><figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-loco-flyer.jpg")} aria-label="Agrandir : Flyer Produit Loco"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(1.5deg)"><Img src="pj-loco-flyer.jpg" alt="Flyer Produit Loco" style="display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#F3EEDF;padding:10px" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">le flyer</p></div></button></figure><figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-loco-kakemono.jpg")} aria-label="Agrandir : Kakemono Produit Loco"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-1deg)"><Img src="pj-loco-kakemono.jpg" alt="Kakemono Produit Loco" style="display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#F3EEDF;padding:10px" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">le kakemono</p></div></button></figure><figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-loco-magazine.jpg")} aria-label="Agrandir : Magazine Produit Loco"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(-2deg)"><Img src="pj-loco-magazine.jpg" alt="Magazine Produit Loco" style="display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#F3EEDF;padding:10px" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">le magazine</p></div></button></figure><figure style="margin:0"><button type="button" class="ex-zoom" data-zoom data-full={img("pj-loco-cartes.jpg")} aria-label="Agrandir : Cartes de visite Produit Loco"><div class="polaroid" style="padding:10px 10px 40px;transform:rotate(1.5deg)"><Img src="pj-loco-cartes.jpg" alt="Cartes de visite Produit Loco" style="display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#F3EEDF;padding:10px" sizes="(max-width: 720px) 132px, 240px" /><p class="polaroid-cap" style="font-size:19px;bottom:8px">les cartes de visite</p></div></button></figure>
+            </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-nav">
+      <a class="vnav f-prev" href="/portfolio/la-grange-coworking/" data-projet="la-grange-coworking" data-fiche-nav="prev"><svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M17 7 H2 M7 1 L1 7 L7 13" fill="none" stroke="#4A2018" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="d-only">Précédent</span><span class="nm">La Grange Coworking</span></a>
+      <a class="btn btn-primary f-cta" href="/contact/"><span class="d-only">Un projet similaire ? Écrivez-moi</span><span class="m-only">Un projet similaire ?</span></a>
+      <a class="vnav f-next" href="/portfolio/brand-style/" data-projet="brand-style" data-fiche-nav="next"><span class="nm">Brand Style</span><span class="d-only">Suivant</span><svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M1 7 H16 M11 1 L17 7 L11 13" fill="none" stroke="#4A2018" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+  </section>
+</dialog>

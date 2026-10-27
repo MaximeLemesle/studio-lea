@@ -1,0 +1,11 @@
+---
+// Une URL par fiche projet (PASSATION § 5.3) : la page portfolio avec la fiche ouverte.
+import PortfolioPage from '../../components/PortfolioPage.astro';
+import { PROJETS } from '../../data/projets';
+
+export function getStaticPaths() {
+  return PROJETS.map((p) => ({ params: { slug: p.slug } }));
+}
+const { slug } = Astro.params;
+---
+<PortfolioPage open={slug} />

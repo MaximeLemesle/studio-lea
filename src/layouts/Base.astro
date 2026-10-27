@@ -13,6 +13,7 @@ import '@fontsource/caveat/700.css';
 import '@fontsource/ms-madi/400.css';
 import '../styles/base.css';
 import '../styles/global.css';
+import '../styles/fiche.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MenuMobile from '../components/MenuMobile.astro';
@@ -53,6 +54,7 @@ const { title, active = null, description, footerSticker = true, bodyClass } = A
     <slot name="after" />
     <script>
       import '../scripts/main';
+      import '../scripts/fiche';
     </script>
   </body>
 </html>

@@ -1,0 +1,170 @@
+---
+// Page Portfolio (maquettes Portfolio et Portfolio-mobile). Utilisée par /portfolio/
+// et par chaque /portfolio/<projet>/, qui affiche la même page avec la fiche ouverte.
+import Base from '../layouts/Base.astro';
+import Img from './Img.astro';
+import { PROJETS } from '../data/projets';
+import '../styles/service.css';
+import '../styles/pages/portfolio.css';
+
+interface Props {
+  /** Projet dont la fiche est ouverte au chargement. */
+  open?: string;
+}
+const { open } = Astro.props;
+const fiches = import.meta.glob<{ default: any }>('./projets/*.astro', { eager: true });
+const FICHES = PROJETS.map((p) => ({ slug: p.slug, Fiche: fiches[`./projets/${p.slug}.astro`].default }));
+const current = PROJETS.find((p) => p.slug === open);
+const title = current ? `Studio Béa — ${current.title}` : 'Studio Béa — Portfolio';
+---
+
+<Base title={title} active="portfolio">
+<!-- INTRO -->
+<section class="grid-brown dark pf-hero" style="position:relative;padding:76px 0 0;color:#F7F0DC">
+  <div class="wrap">
+    <div class="pf-hero-grid" style="position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:56px;align-items:end;padding-bottom:64px">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <nav class="crumb" aria-label="Fil d'Ariane" style="color:#F3E9B5"><a href="/" style="color:#F3E9B5">Accueil</a><span aria-hidden="true">/</span><span>Portfolio</span></nav>
+        <h1 class="h1 pf-h1" style="color:#F7F0DC">Portfolio</h1>
+        <p class="script pf-carnet" data-anim="write" aria-hidden="true" style="--d:.4s;font-size:72px;color:#F3E9B5;margin:-26px 0 0 300px;transform:rotate(-5deg)">le carnet de projets</p>
+      </div>
+      <div class="d-only" style="position:relative;display:flex;justify-content:flex-end">
+        <svg class="pf-stamp" data-anim="stamp" style="--d:1s" style="transform:rotate(-12deg);opacity:.9" width="150" height="150" viewBox="0 0 130 130" aria-hidden="true"><defs><path id="arcPf" d="M65 65 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0"></path></defs><circle cx="65" cy="65" r="61" fill="none" stroke="#F3E9B5" stroke-width="2.5"></circle><circle cx="65" cy="65" r="35" fill="none" stroke="#F3E9B5" stroke-width="1.5" stroke-dasharray="3 3"></circle><text font-family="'Courier Prime', monospace" font-size="10" font-weight="700" letter-spacing="1.2" fill="#F3E9B5"><textPath href="#arcPf">STUDIO BÉA · FAIT MAIN · ANGERS · 49 · </textPath></text><path transform="translate(53 53)" d="M12 1.6l2.9 6.5 7.1.8-5.3 4.8 1.5 7-6.2-3.6-6.2 3.6 1.5-7L2 8.9l7.1-.8z" fill="#C9A43A"></path></svg>
+      </div>
+    </div>
+
+    <div class="pf-filterbar" style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <p class="label m-only pf-filtrer" style="font-size:11px;color:#F3E9B5">Filtrer</p>
+      <ul class="tabs filters" aria-label="Filtrer par service" role="list" data-filters>
+        <li><button class="tab" type="button" aria-pressed="true" data-filter="tous">Tous</button></li>
+        <li><button class="tab" type="button" aria-pressed="false" data-filter="cm" style="background:#F2E3A0">Community management</button></li>
+        <li><button class="tab" type="button" aria-pressed="false" data-filter="audit" style="background:#C9D6EC">Audit</button></li>
+        <li><button class="tab" type="button" aria-pressed="false" data-filter="graphisme" style="background:#EFC9D2">Graphisme</button></li>
+        <li><button class="tab" type="button" aria-pressed="false" data-filter="redac" style="background:#CFE3C4">Rédactionnel</button></li>
+        <li><button class="tab" type="button" aria-pressed="false" data-filter="ugc" style="background:#F4D3B8">UGC</button></li>
+      </ul>
+      <p class="spec pf-count" style="color:#F3E9B5;padding-bottom:14px">13 projets</p>
+    </div>
+  </div>
+</section>
+
+<!-- MUR DE POLAROÏDS -->
+<section class="grid-cream pf-wall-sec" style="position:relative;padding:80px 0 80px">
+  <div class="wrap">
+    <p class="spec m-only pf-legend">Légende : <span class="svc" style="background:#F2E3A0">CM</span><span class="svc" style="background:#C9D6EC">Audit</span><span class="svc" style="background:#EFC9D2">Graphisme</span><span class="svc" style="background:#CFE3C4">Rédac</span><span class="svc" style="background:#F4D3B8">UGC</span> <br>CM = community management · Rédac = rédactionnel</p>
+    <div class="wall" data-wall>
+      <article class="wall-item" data-wall-item data-slug="medusor" data-services="cm redac" data-anim="drop">
+        <a href="/portfolio/medusor/" data-projet="medusor" aria-label="Voir le projet Médusor en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(-3deg)"><div class="washi washi-dots" style="width:100px;top:-14px;left:40%;transform:rotate(6deg)"></div><div class="flags" aria-hidden="true"><span style="background:#F2E3A0"></span><span style="background:#CFE3C4"></span></div><Img src="pf-medusor.jpg" alt="Projet Médusor" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover" /><p class="polaroid-cap">Médusor</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></span><span class="svc" style="background:#CFE3C4"><span class="d-only">Rédactionnel</span><span class="m-only">Rédac</span></span></div><a class="link d-only" href="/portfolio/medusor/" data-projet="medusor" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="salon-des-peches" data-services="cm redac ugc" data-anim="drop">
+        <a href="/portfolio/salon-des-peches/" data-projet="salon-des-peches" aria-label="Voir le projet Salon des Pêches en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(2deg)"><div class="washi washi-plain" style="width:100px;top:-14px;left:10%;transform:rotate(-4deg)"></div><div class="flags" aria-hidden="true"><span style="background:#F2E3A0"></span><span style="background:#CFE3C4"></span><span style="background:#F4D3B8"></span></div><Img src="projet-salon-peches.jpg" alt="Projet Salon des Pêches" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover" /><p class="polaroid-cap">Salon des Pêches</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></span><span class="svc" style="background:#CFE3C4"><span class="d-only">Rédactionnel</span><span class="m-only">Rédac</span></span><span class="svc" style="background:#F4D3B8">UGC</span></div><a class="link d-only" href="/portfolio/salon-des-peches/" data-projet="salon-des-peches" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="liquide-imaginaire" data-services="cm" data-anim="drop">
+        <a href="/portfolio/liquide-imaginaire/" data-projet="liquide-imaginaire" aria-label="Voir le projet Liquide Imaginaire en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(-1.5deg)"><div class="washi washi-floral" style="width:100px;top:-14px;right:10%;transform:rotate(3.0deg)"></div><Img src="pf-liquide-imaginaire.jpg" alt="Projet Liquide Imaginaire" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover" /><p class="polaroid-cap">Liquide Imaginaire</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></span></div><a class="link d-only" href="/portfolio/liquide-imaginaire/" data-projet="liquide-imaginaire" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="nutraclear" data-services="cm ugc" data-anim="drop">
+        <a href="/portfolio/nutraclear/" data-projet="nutraclear" aria-label="Voir le projet Nutraclear en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(2.5deg)"><div class="washi washi-dots" style="width:100px;top:-14px;left:30%;transform:rotate(-5.0deg)"></div><div class="flags" aria-hidden="true"><span style="background:#F2E3A0"></span><span style="background:#F4D3B8"></span></div><Img src="projet-nutraclear.jpg" alt="Projet Nutraclear" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover" /><p class="polaroid-cap">Nutraclear</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></span><span class="svc" style="background:#F4D3B8">UGC</span></div><a class="link d-only" href="/portfolio/nutraclear/" data-projet="nutraclear" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="fitadium" data-services="cm audit" data-anim="drop">
+        <a href="/portfolio/fitadium/" data-projet="fitadium" aria-label="Voir le projet Fitadium en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(-2deg)"><div class="washi washi-plain" style="width:100px;top:-14px;left:50%;margin-left:-50px;transform:rotate(4deg)"></div><div class="flags" aria-hidden="true"><span style="background:#F2E3A0"></span><span style="background:#C9D6EC"></span></div><Img src="pf-fitadium.jpg" alt="Projet Fitadium" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover" /><p class="polaroid-cap">Fitadium</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></span><span class="svc" style="background:#C9D6EC">Audit</span></div><a class="link d-only" href="/portfolio/fitadium/" data-projet="fitadium" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="ap-ressources-humaines" data-services="cm graphisme redac" data-anim="drop">
+        <a href="/portfolio/ap-ressources-humaines/" data-projet="ap-ressources-humaines" aria-label="Voir le projet AP Ressources Humaines en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(1.5deg)"><div class="washi washi-floral" style="width:100px;top:-14px;left:20%;transform:rotate(-3.0deg)"></div><div class="flags" aria-hidden="true"><span style="background:#F2E3A0"></span><span style="background:#EFC9D2"></span><span style="background:#CFE3C4"></span></div><Img src="pf-ap-rh.jpg" alt="Projet AP Ressources Humaines" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover" /><p class="polaroid-cap">AP Ressources Humaines</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></span><span class="svc" style="background:#EFC9D2"><span class="d-only">Graphisme · maquettage</span><span class="m-only">Graphisme</span></span><span class="svc" style="background:#CFE3C4"><span class="d-only">Rédactionnel</span><span class="m-only">Rédac</span></span></div><p class="spec m-only pf-detail">maquettage</p><a class="link d-only" href="/portfolio/ap-ressources-humaines/" data-projet="ap-ressources-humaines" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="oui-a-la-qualite" data-services="cm" data-anim="drop">
+        <a href="/portfolio/oui-a-la-qualite/" data-projet="oui-a-la-qualite" aria-label="Voir le projet Oui à la Qualité en Pays de la Loire en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(-2.5deg)"><div class="washi washi-dots" style="width:100px;top:-14px;right:15%;transform:rotate(5.0deg)"></div><Img src="projet-oui-qualite.jpg" alt="Projet Oui à la Qualité en Pays de la Loire" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover" /><p class="polaroid-cap" style="font-size:17px">Oui à la Qualité en Pays de la Loire</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></span></div><a class="link d-only" href="/portfolio/oui-a-la-qualite/" data-projet="oui-a-la-qualite" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="aline-lemesle" data-services="graphisme" data-anim="drop">
+        <a href="/portfolio/aline-lemesle/" data-projet="aline-lemesle" aria-label="Voir le projet Aline Lemesle en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(2deg)"><div class="washi washi-plain" style="width:100px;top:-14px;left:35%;transform:rotate(-4deg)"></div><Img src="services-graphisme.jpg" alt="Projet Aline Lemesle" style="display:block;width:100%;aspect-ratio:413/300;object-fit:cover" /><p class="polaroid-cap">Aline Lemesle</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#EFC9D2"><span class="d-only">Graphisme · carte de visite</span><span class="m-only">Graphisme</span></span></div><p class="spec m-only pf-detail">carte de visite</p><a class="link d-only" href="/portfolio/aline-lemesle/" data-projet="aline-lemesle" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="yubo" data-services="cm" data-anim="drop">
+        <a href="/portfolio/yubo/" data-projet="yubo" aria-label="Voir le projet Yubo en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(-1deg)"><div class="washi washi-floral" style="width:100px;top:-14px;left:50%;margin-left:-50px;transform:rotate(2deg)"></div><Img src="pf-yubo.jpg" alt="Projet Yubo" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover" /><p class="polaroid-cap">Yubo</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></span></div><a class="link d-only" href="/portfolio/yubo/" data-projet="yubo" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="msa" data-services="graphisme" data-anim="drop">
+        <a href="/portfolio/msa/" data-projet="msa" aria-label="Voir le projet MSA en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(2deg)"><div class="washi washi-dots" style="width:100px;top:-14px;left:25%;transform:rotate(-4deg)"></div><Img src="pf-msa.jpg" alt="Projet MSA" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover" /><p class="polaroid-cap">MSA</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#EFC9D2"><span class="d-only">Graphisme · infographie</span><span class="m-only">Graphisme</span></span></div><p class="spec m-only pf-detail">infographie</p><a class="link d-only" href="/portfolio/msa/" data-projet="msa" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="la-grange-coworking" data-services="cm graphisme" data-anim="drop">
+        <a href="/portfolio/la-grange-coworking/" data-projet="la-grange-coworking" aria-label="Voir le projet La Grange Coworking en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(-2deg)"><div class="washi washi-plain" style="width:100px;top:-14px;right:20%;transform:rotate(4deg)"></div><div class="flags" aria-hidden="true"><span style="background:#F2E3A0"></span><span style="background:#EFC9D2"></span></div><Img src="pf-la-grange.jpg" alt="Projet La Grange Coworking" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover" /><p class="polaroid-cap">La Grange Coworking</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#F2E3A0"><span class="d-only">Community management</span><span class="m-only">CM</span></span><span class="svc" style="background:#EFC9D2"><span class="d-only">Graphisme · vitrophanie</span><span class="m-only">Graphisme</span></span></div><p class="spec m-only pf-detail">vitrophanie</p><a class="link d-only" href="/portfolio/la-grange-coworking/" data-projet="la-grange-coworking" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="produit-loco" data-services="graphisme" data-anim="drop">
+        <a href="/portfolio/produit-loco/" data-projet="produit-loco" aria-label="Voir le projet Produit Loco en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(1.5deg)"><div class="washi washi-floral" style="width:100px;top:-14px;left:15%;transform:rotate(-3.0deg)"></div><Img src="pf-produit-loco.jpg" alt="Projet Produit Loco" style="display:block;width:100%;aspect-ratio:5/4;object-fit:cover" /><p class="polaroid-cap">Produit Loco</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#EFC9D2"><span class="d-only">Graphisme · identité visuelle</span><span class="m-only">Graphisme</span></span></div><p class="spec m-only pf-detail">identité visuelle</p><a class="link d-only" href="/portfolio/produit-loco/" data-projet="produit-loco" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+      <article class="wall-item" data-wall-item data-slug="brand-style" data-services="graphisme" data-anim="drop">
+        <a href="/portfolio/brand-style/" data-projet="brand-style" aria-label="Voir le projet Brand Style en grand" style="display:block;text-decoration:none;color:inherit"><div class="polaroid" style="transform:rotate(2deg)"><div class="washi washi-dots" style="width:100px;top:-14px;left:45%;transform:rotate(-4deg)"></div><Img src="pf-brand-style.jpg" alt="Projet Brand Style" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover" /><p class="polaroid-cap">Brand Style</p></div></a>
+        <div class="wall-meta"><div class="svcs"><span class="svc" style="background:#EFC9D2"><span class="d-only">Graphisme · identité visuelle</span><span class="m-only">Graphisme</span></span></div><p class="spec m-only pf-detail">identité visuelle</p><a class="link d-only" href="/portfolio/brand-style/" data-projet="brand-style" style="font-size:12px">Voir en grand →</a></div>
+      </article>
+    </div>
+    <div class="pf-more" style="position:relative;display:flex;justify-content:center;margin-top:8px">
+      <button class="btn btn-secondary" type="button" data-more>Voir plus de projets</button>
+    </div>
+  </div>
+</section>
+
+<!-- VIDÉOS UGC -->
+<section class="grid-brown dark pf-videos" style="position:relative;padding:110px 0 120px;color:#F7F0DC">
+  <div class="wrap">
+    <div class="pf-videos-head" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:64px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <p class="label" style="color:#F3E9B5">— Vidéos UGC</p>
+        <h2 class="h2" style="color:#F7F0DC">En format vertical</h2>
+        <span class="script pf-envrai" data-anim="write" aria-hidden="true" style="display:block;font-size:60px;color:#F3E9B5;margin:-14px 0 0 360px;transform:rotate(-6deg);white-space:nowrap">en vrai</span>
+      </div>
+      <p class="body" style="max-width:420px;color:#F7F0DC">Tutos, avis produit, unboxings : des vidéos tournées comme le ferait une cliente.</p>
+    </div>
+    <div class="pf-vid-track" data-carousel data-stagger="200ms" style="position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px;max-width:960px;margin:0 auto;align-items:start;color:#4A2018">
+      <figure class="pf-vid" data-anim="drop" style="margin:0;display:flex;flex-direction:column;gap:14px">
+        <div class="vid" style="transform:rotate(-2deg)"><div class="washi washi-dots" style="width:90px;top:-14px;left:50%;margin-left:-45px;transform:rotate(-4deg)"></div><div class="ph"><span class="play"><svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true"><path d="M3 2 L20 12 L3 22 Z" fill="#F7F0DC"></path></svg></span><span class="a-completer">À compléter</span></div></div>
+        <figcaption style="display:flex;flex-direction:column;gap:2px;color:#F7F0DC"><span class="note" style="font-size:24px">Salon des Pêches</span><span class="spec">Annonce · 9 602 vues · organique</span></figcaption>
+      </figure>
+      <figure class="pf-vid" data-anim="drop" style="margin:40px 0 0;display:flex;flex-direction:column;gap:14px">
+        <div class="vid" style="transform:rotate(1.5deg)"><div class="washi washi-plain" style="width:90px;top:-14px;left:20%;transform:rotate(-7deg)"></div><div class="ph"><span class="play"><svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true"><path d="M3 2 L20 12 L3 22 Z" fill="#F7F0DC"></path></svg></span><span class="a-completer">À compléter</span></div></div>
+        <figcaption style="display:flex;flex-direction:column;gap:2px;color:#F7F0DC"><span class="note" style="font-size:24px">Nutraclear</span><span class="spec">Conseils · 839 000 vues · ads</span></figcaption>
+      </figure>
+      <figure class="pf-vid" data-anim="drop" style="margin:10px 0 0;display:flex;flex-direction:column;gap:14px">
+        <div class="vid" style="transform:rotate(-1deg)"><div class="washi washi-floral" style="width:90px;top:-14px;right:18%;transform:rotate(5deg)"></div><div class="ph"><span class="play"><svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true"><path d="M3 2 L20 12 L3 22 Z" fill="#F7F0DC"></path></svg></span><span class="a-completer">À compléter</span></div></div>
+        <figcaption style="display:flex;flex-direction:column;gap:2px;color:#F7F0DC"><span class="note" style="font-size:24px">Albom</span><span class="spec">Unboxing · 635 vues · organique</span></figcaption>
+      </figure>
+    </div>
+    <div class="pager m-only" data-pager aria-hidden="true"><span></span><span></span><span></span></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="grid-sage pf-cta s-cta" style="position:relative;padding:120px 0 130px">
+  <div class="wrap" style="display:flex;justify-content:center">
+    <div style="position:relative;width:100%;max-width:860px">
+      <div class="lined s-letter" style="position:relative;padding:60px 60px 50px;transform:rotate(-1deg);box-shadow:0 22px 40px rgba(40,15,10,.25);text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
+        <div class="washi washi-dots" style="width:130px;top:-14px;left:-26px;transform:rotate(-30deg)"></div>
+        <h2 style="margin:0;display:flex;flex-direction:column;align-items:center;font-weight:400">
+          <span class="h1 s-cta-title" style="display:block;font-size:48px">Et votre projet ?</span>
+          <span class="script s-cta-script" data-anim="write" style="display:block;font-size:96px;line-height:1.1">Écrivez-moi</span>
+        </h2>
+        <p class="lead s-cta-lead" style="max-width:560px">Il y a peut-être une page de ce carnet qui vous attend. Racontez-moi votre projet.</p>
+        <div data-m-stack style="display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:6px">
+          <a class="btn btn-primary" href="/contact/">M'écrire un message</a>
+          <a class="btn btn-secondary" href="/services/">Voir les services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <Fragment slot="after">
+    {FICHES.map(({ slug, Fiche }) => <Fiche open={slug === open} />)}
+  </Fragment>
+</Base>
+
+<script>
+  import './../scripts/portfolio';
+</script>
