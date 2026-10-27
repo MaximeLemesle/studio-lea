@@ -309,3 +309,26 @@ button.btn { background-clip: padding-box; }
   .site-footer .wrap { position: static; }
   .ft-contact ul + ul { margin-top: -6px; }
 }
+
+/* ==========================================================================
+   Dossiers en accordéon (mobile, M5 et M6) — accueil et services
+   ========================================================================== */
+.mfolder { position: relative; filter: drop-shadow(0 -3px 4px rgba(40,15,10,.12)); }
+.mfolder + .mfolder { margin-top: -4px; }
+.mfolder summary { list-style: none; cursor: pointer; position: relative; display: block; padding-top: 28px; }
+.mfolder summary::-webkit-details-marker { display: none; }
+.mfolder .ear { position: absolute; top: 0; height: 32px; width: 150px; white-space: nowrap; border-radius: 10px 10px 0 0; padding: 8px 12px 0; font-family: 'Courier Prime','Courier New',monospace; font-weight: 700; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #4A2018; }
+.mfolder .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 58px; padding: 10px 16px; border-radius: 0 12px 0 0; }
+.mfolder .chev { flex: none; transition: transform .25s; }
+.mfolder[open] .chev { transform: rotate(180deg); }
+.mfolder .mbody { padding: 2px 12px 14px; border-radius: 0 0 12px 12px; }
+.mfolder:last-child:not([open]) .bar { border-radius: 0 12px 12px 12px; }
+.mfolder .sheet { padding: 18px 18px 8px; gap: 10px; }
+@media (prefers-reduced-motion: no-preference) {
+  .mfolder[open] .sheet { animation: sheet-out .35s ease-out both; }
+}
+
+
+/* Étiquette prix compacte (maquettes mobiles) */
+.ptag { position: relative; display: inline-flex; flex-direction: column; padding: 10px 20px 10px 40px; clip-path: polygon(22px 0,100% 0,100% 100%,22px 100%,0 50%); color: #4A2018; }
+.mfolder .sheet { background: #FFFDF6; border-radius: 6px; box-shadow: 0 2px 6px rgba(40,15,10,.12); display: flex; flex-direction: column; }

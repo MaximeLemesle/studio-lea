@@ -42,3 +42,46 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .faq summary::-webkit-details-marker{display:none}
 .faq .plus{flex:none;transition:transform .25s}
 .faq[open] .plus{transform:rotate(45deg)}
+
+/* ==========================================================================
+   Services — tablette et mobile (maquette Services-mobile)
+   ========================================================================== */
+@media (max-width: 1100px) and (min-width: 721px) {
+  .sv-pourvous { left: 300px !important; }
+  html .sv-faq-grid { grid-template-columns: minmax(0, 1fr) !important; }
+}
+@media (max-width: 720px) {
+  html .sv-hero { padding: 30px 0 56px !important; }
+  html .sv-hero-grid { display: block !important; }
+  .sv-hero-grid > div:first-child { gap: 0 !important; }
+  .sv-hero h1 { margin-top: 16px !important; }
+  html .sv-pourvous { position: static !important; display: block; font-size: 54px !important; text-align: right; margin: 0 6px 0 0; transform: rotate(-6deg) !important; }
+  html .sv-lead { margin-top: 8px; font-size: 17px !important; }
+  html .sv-pills { gap: 8px !important; margin-top: 22px !important; }
+  html .sv-pills .pill { min-height: 40px; padding: 0 14px; font-size: 11px; }
+  html .sv-postit { width: auto !important; margin: 40px 10px 0; padding: 34px 22px 18px !important; transform: rotate(2deg) !important; gap: 8px !important; }
+  html .sv-postit .washi { width: 90px !important; top: -12px !important; margin-left: -45px !important; }
+  html .sv-postit .note { font-size: 26px !important; line-height: 1.15 !important; }
+  .sv-hero-grid > div:last-child { display: block !important; }
+
+  html .sv-dossiers { padding: 52px 0 64px !important; }
+  .sv-dossiers > .wrap { gap: 0 !important; }
+  .sv-mobile { display: block !important; }
+  .sv-mobile .ptag .serif span { font-size: 14px !important; }
+
+  html .sv-faq { padding: 56px 0 64px !important; }
+  .sv-faq .wrap { padding: 0 16px; }
+  html .sv-faq-head { display: block !important; margin-bottom: 26px !important; padding: 0 4px; }
+  .sv-faq-head > div { gap: 6px !important; }
+  html .sv-faq .h2 { font-size: 30px !important; margin-bottom: 10px; }
+  html .sv-faq-grid { display: flex !important; flex-direction: column; align-items: stretch !important; gap: 16px !important; }
+
+  html .sv-cta { padding: 60px 0 72px !important; }
+  .sv-cta > .wrap { padding: 0 16px !important; }
+  .sv-cta .lined { padding: 44px 22px 34px !important; gap: 14px !important; }
+  .sv-cta .washi { width: 100px !important; top: -12px !important; left: -18px !important; transform: rotate(-28deg) !important; }
+  html .sv-cta-title { font-size: 26px !important; line-height: 1.12 !important; }
+  .sv-cta .script { font-size: 64px !important; }
+  .sv-cta .lead { font-size: 16px !important; line-height: 1.625 !important; }
+  .sv-cta .lead + div { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; width: 100%; }
+}

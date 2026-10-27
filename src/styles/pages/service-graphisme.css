@@ -58,3 +58,28 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .pick .pr{font-family:'Josefin Sans','Century Gothic',sans-serif;font-weight:700;font-size:20px;white-space:nowrap}
 .kit-hint{display:none}
 .kit-hint.show{display:block}
+
+/* Calculateur « À l'unité » : tablette et mobile */
+@media (max-width: 1000px) {
+  html .g-unit { grid-template-columns: minmax(0, 1fr) !important; gap: 30px !important; }
+  html .g-unit-side { padding-top: 0 !important; }
+}
+@media (max-width: 720px) {
+  html .g-unit { margin-top: 56px !important; }
+  html .g-unit-title { font-size: 26px !important; }
+  html .g-unit-script { display: block !important; text-align: right; font-size: 42px !important; margin: 0 4px 0 0; }
+  html .g-unit-list { margin-top: 22px; padding: 16px 10px 12px !important; transform: none !important; }
+  html .g-unit-list .washi { width: 90px !important; left: 24px !important; top: -13px !important; }
+  html .pick { padding: 10px 14px; gap: 14px; }
+  html .pick .nm { font-size: 15px !important; }
+  html .pick .pr { font-size: 17px; }
+  html .g-unit-side .postit { padding: 30px 20px 22px !important; transform: rotate(1deg) !important; gap: 12px !important; }
+  html .g-unit-side .postit .serif { font-size: 30px !important; }
+  html .g-unit-side .kit-hint .note { font-size: 20px !important; padding: 0 !important; }
+}
+@media (max-width: 720px) {
+  html .s-hero-visual { height: 400px !important; }
+  html .s-pol1 { left: 4px !important; top: 0 !important; width: 205px !important; }
+  html .s-pol2 { display: block !important; right: 2px !important; top: 196px !important; width: 172px !important; transform: rotate(5deg) !important; }
+  html .s-price { right: auto !important; left: 14px !important; }
+}

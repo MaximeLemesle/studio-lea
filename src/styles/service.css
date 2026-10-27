@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Pages service (gabarit commun aux 5 pages) — tablette et mobile
+   Valeurs reprises des maquettes Service-*-mobile (375 px).
+   ========================================================================== */
+
+@media (hover: hover) {
+  .s-proj .polaroid { transition: transform .3s ease; }
+  .s-proj:hover .polaroid { transform: rotate(0deg) !important; }
+}
+
+/* Tablette */
+@media (max-width: 1100px) and (min-width: 721px) {
+  .s-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr) !important; gap: 40px !important; }
+  .s-accroche { margin-left: 80px !important; }
+  html .s-formules-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; row-gap: 56px !important; }
+  html .s-steps { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; row-gap: 32px !important; }
+  .s-dash { display: none; }
+  html .s-proj-track { grid-template-columns: repeat(auto-fit, minmax(220px, 300px)) !important; }
+}
+
+@media (max-width: 720px) {
+  /* Accroche */
+  html .s-hero { padding: 30px 0 52px !important; }
+  html .s-hero-grid { display: flex !important; flex-direction: column; align-items: stretch !important; gap: 0 !important; }
+  .s-hero-grid > * { margin-top: 0; }
+  .s-hero .crumb + .label { align-self: flex-start; }
+  html .s-hero-text { display: contents !important; }
+  .s-hero .crumb { font-size: 11px; gap: 8px; letter-spacing: .14em; }
+  .s-hero .label.dots { margin-top: 18px; padding: 7px 14px !important; border-radius: 9px 9px 0 0 !important; font-size: 11px !important; }
+  html .s-h1 { font-size: 36px !important; margin-top: 0 !important; }
+  html .s-accroche { font-size: 44px !important; text-align: right; margin: 2px 2px 0 0 !important; }
+  html .s-lead { margin-top: 10px; font-size: 17px !important; }
+  html .s-hero-visual { order: 5; height: 320px !important; margin-top: 26px; }
+  html .s-pol1 { left: 8px !important; top: 8px !important; width: 200px !important; transform: rotate(-4deg) !important; }
+  .s-pol2 { display: none; }
+  html .s-price { left: auto !important; right: 0 !important; top: auto !important; bottom: -8px !important; transform: rotate(-6deg) !important; }
+  html .s-price .kraft, html .s-price > div { padding: 10px 20px 10px 40px !important; clip-path: polygon(22px 0,100% 0,100% 100%,22px 100%,0 50%) !important; }
+  html .s-price .serif { font-size: 26px !important; }
+  html .s-price .serif span { font-size: 16px !important; }
+  html .s-hero-cta { order: 6; margin-top: 8px !important; }
+
+  /* Pour qui */
+  html .s-pourqui { padding: 52px 0 64px !important; }
+  html .s-pourqui .h2 { font-size: 30px; }
+  .s-pourqui .wrap > div:first-child { margin-bottom: 0 !important; }
+  html .s-postits { display: flex !important; flex-direction: column; gap: 30px !important; margin-top: 40px; }
+  html .s-postits .postit { padding: 38px 22px 24px !important; gap: 8px !important; }
+  html .s-postits .washi { width: 84px !important; top: -12px !important; margin-left: -42px !important; }
+  html .s-postits .note { font-size: 32px !important; }
+  html .s-postits .h3 { font-size: 20px !important; }
+  html .s-bonne { margin-top: 44px !important; flex-direction: column; align-items: stretch !important; gap: 10px !important; text-align: left !important; }
+  html .s-bonne .script { font-size: 46px !important; }
+  html .s-bonne .h3 { font-size: 20px !important; }
+  html .s-bonne .btn { margin-top: 8px; }
+
+  /* Formules (M3 : elles s'empilent) */
+  html .s-formules { padding: 56px 0 64px !important; }
+  .s-formules .wrap { padding: 0 18px; }
+  .s-formules .wrap > div:first-child { margin-bottom: 0 !important; }
+  html .s-formules .h2 { font-size: 30px; }
+  html .s-sur { font-size: 46px !important; text-align: right; margin: 0 4px 0 0 !important; }
+  html .s-formules-grid { display: flex !important; flex-direction: column; gap: 36px !important; margin-top: 40px; }
+  html .s-formules-grid .formule { padding: 40px 22px 26px; gap: 12px; transform: rotate(-1deg) scale(1) !important; }
+  html .s-formules-grid .formule:nth-child(2) { transform: rotate(.8deg) !important; }
+  html .s-formules-grid .formule .washi { width: 90px !important; top: -13px !important; }
+  html .s-formules-grid .formule .h3 { font-size: 22px !important; }
+  html .s-formules-grid .formule .script { font-size: 52px !important; }
+  html .s-formules-grid .formule .note { font-size: 19px !important; }
+  html .s-formules-grid .formule .btn { align-self: stretch !important; }
+  html .formule .price-tag > div { padding: 10px 20px 10px 40px; clip-path: polygon(22px 0,100% 0,100% 100%,22px 100%,0 50%); }
+  html .formule .price-tag .serif { font-size: 26px !important; }
+  html .formule .price-tag .serif span { font-size: 16px !important; }
+  html .mini li { font-size: 15px; }
+  html .s-conseil { right: -8px !important; top: -24px !important; width: 112px !important; height: 62px !important; }
+  html .s-conseil svg { width: 112px; height: 62px; }
+  html .s-conseil .note { font-size: 17px !important; }
+  html .s-option { flex-direction: column; align-items: flex-start !important; gap: 4px !important; padding: 12px 16px !important; }
+  html .s-option .label { font-size: 10px !important; }
+  html .s-option .h3 { font-size: 17px !important; }
+  html .s-option .small { font-size: 14px !important; }
+  .s-formules .wrap > div:has(> .s-option) { margin-top: 34px !important; }
+  .s-formules .wrap > p.note:last-child { margin-top: 22px !important; font-size: 21px !important; }
+
+  /* Inclus et livrables */
+  html .s-inclus { padding: 56px 0 64px !important; }
+  .s-inclus .wrap { padding: 0 18px; }
+  html .s-inclus-grid { display: flex !important; flex-direction: column; gap: 46px !important; }
+  html .s-inclus-card { padding: 38px 20px 26px !important; }
+  html .s-inclus-card .washi { width: 96px !important; top: -13px !important; left: 26px !important; }
+  html .s-inclus .h2 { font-size: 28px !important; margin: 6px 0 16px !important; }
+  html .check li { grid-template-columns: 26px minmax(0, 1fr); gap: 12px; padding: 7px 0; font-size: 16px; line-height: 1.4; }
+  html .check li svg { width: 26px; height: 26px; }
+  .s-inclus-grid > div:last-child { padding-top: 0 !important; gap: 6px !important; }
+  html .s-ltags { gap: 16px !important; }
+  html .s-ltag > div { padding: 13px 22px 13px 44px !important; clip-path: polygon(22px 0,100% 0,100% 100%,22px 100%,0 50%) !important; }
+  html .s-ltag .tag-hole { left: 14px !important; }
+  html .s-ltag .h3 { font-size: 17px !important; }
+  html .s-ltag[style*="margin-left:40px"] { margin-left: 26px !important; }
+
+  /* Déroulé : frise verticale */
+  html .s-deroule { padding: 56px 0 64px !important; }
+  html .s-deroule-head { align-items: flex-start !important; text-align: left !important; gap: 6px !important; margin-bottom: 0 !important; }
+  .s-deroule-head > div { display: inline-block; }
+  html .s-deroule .h2 { font-size: 30px; }
+  .s-deroule-head svg { width: 70% !important; }
+  html .s-steps { position: relative; display: flex !important; flex-direction: column; gap: 18px !important; padding: 0 0 0 18px !important; margin-top: 36px !important; }
+  .s-steps::before { content: ""; position: absolute; left: 4px; top: 20px; bottom: 20px; border-left: 2px dashed #F3E9B5; }
+  html .s-steps li { margin-top: 0 !important; padding: 54px 16px 18px; gap: 6px; background-image: repeating-linear-gradient(transparent 0 27px, rgba(29,78,158,.12) 27px 28px); box-shadow: 0 8px 16px rgba(40,15,10,.16); }
+  html .s-steps li h3 { font-size: 19px !important; padding-top: 8px; border-top: 2px solid rgba(201,90,110,.6); }
+  html .s-steps li p { font-size: 14px !important; }
+  html .s-steps .step-n { top: 12px; left: 14px; width: 34px; height: 34px; font-size: 16px; }
+
+  /* Projets : carrousel */
+  html .s-projets { padding: 56px 0 60px !important; }
+  .s-projets > .wrap { padding: 0 !important; display: flex; flex-direction: column; }
+  html .s-projets-head { padding: 0 20px; margin-bottom: 0 !important; display: block !important; }
+  html .s-projets .h2 { font-size: 28px !important; margin-top: 6px; }
+  .s-allpf { order: 5; margin: 22px 20px 0; }
+  .s-projets-head .s-allpf { display: none; }
+  html .s-proj-track { display: flex !important; gap: 18px !important; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 30px 20px 22px; color: #4A2018; }
+  .s-proj-track::-webkit-scrollbar { display: none; }
+  .s-proj-track > * { flex: 0 0 268px; scroll-snap-align: center; margin-top: 0 !important; }
+  html .s-proj-single { justify-content: center; overflow: visible; }
+  html .s-proj .polaroid { padding: 10px 10px 46px !important; transform: rotate(-2deg) !important; transition: transform .35s ease; }
+  html .s-proj:nth-child(2) .polaroid { transform: rotate(2deg) !important; }
+  html .s-proj.is-center .polaroid { transform: rotate(0deg) !important; }
+  html .s-proj .washi { width: 90px !important; top: -12px !important; }
+  html .s-proj .polaroid-cap { font-size: 21px !important; }
+  html .s-proj .kraft { margin: -2px 10px 0 18px !important; padding: 14px 16px !important; gap: 6px !important; }
+  html .s-proj .kraft .serif { font-size: 20px !important; }
+  html .s-proj .link { font-size: 11px !important; min-height: 36px; }
+  .s-projets .pager { display: flex !important; justify-content: center; gap: 8px; }
+  .s-projets .pager span { width: 8px; height: 8px; border-radius: 50%; background: rgba(247,240,220,.35); transition: width .25s, background .25s; }
+  .s-projets .pager span.on { width: 22px; border-radius: 4px; background: #F3E9B5; }
+
+  /* Témoignage */
+  html .s-temoin { padding: 56px 0 60px !important; }
+  .s-temoin .wrap { padding: 0 18px; align-items: stretch !important; gap: 0 !important; }
+  .s-temoin .wrap > div:first-child { align-items: flex-start !important; gap: 6px !important; }
+  html .s-temoin .h2 { font-size: 28px !important; }
+  html .s-quote { margin-top: 34px !important; padding: 40px 22px 26px !important; }
+  html .s-quote .washi { width: 90px !important; top: -13px !important; margin-left: -45px !important; }
+  html .s-quote > .script { left: 12px !important; top: -4px !important; font-size: 90px !important; }
+  html .s-quote blockquote { font-size: 16px; line-height: 1.625; }
+  html .s-quote figcaption { margin-top: 12px !important; font-size: 21px !important; }
+
+  /* FAQ : une question à la fois */
+  html .s-faq { padding: 56px 0 64px !important; }
+  .s-faq .wrap { padding: 0 16px; }
+  .s-faq .wrap > div:first-child { margin-bottom: 28px !important; padding: 0 4px; gap: 6px !important; }
+  html .s-faq .h2 { font-size: 30px !important; }
+  html .s-faq-grid { display: flex !important; flex-direction: column; align-items: stretch !important; gap: 16px !important; }
+  html .faq summary { min-height: 56px; padding: 12px 16px; gap: 12px; }
+  html .faq summary .h3 { font-size: 18px !important; }
+  html .faq[open] summary { border-bottom: 2px solid rgba(201,90,110,.6); }
+  html .faq p { padding: 16px 16px 20px !important; font-size: 15px !important; line-height: 28px !important; }
+  html .s-faq .bristol, html .faq.bristol { background-image: repeating-linear-gradient(transparent 0 27px, rgba(29,78,158,.12) 27px 28px); box-shadow: 0 8px 16px rgba(40,15,10,.16); }
+
+  /* CTA */
+  html .s-cta { padding: 60px 0 72px !important; }
+  .s-cta > .wrap { padding: 0 16px !important; }
+  html .s-letter { padding: 44px 22px 34px !important; gap: 14px !important; box-shadow: 0 16px 30px rgba(40,15,10,.25) !important; }
+  html .s-letter > .washi { width: 100px !important; top: -12px !important; left: -18px !important; transform: rotate(-28deg) !important; }
+  html .s-cta-title { font-size: 26px !important; line-height: 1.12 !important; }
+  html .s-cta-script { font-size: 64px !important; }
+  html .s-cta-lead { font-size: 16px !important; line-height: 1.625 !important; }
+}
+
+/* Tablette et mobile : la FAQ des pages service passe en une colonne */
+@media (max-width: 1060px) {
+  html .s-faq-grid { grid-template-columns: minmax(0, 1fr) !important; }
+}
+
+@media (max-width: 720px) {
+  html .s-accroche-abs { position: static !important; display: block; }
+  .s-hero-text > div:has(> .s-h1) { margin-top: 0 !important; }
+}

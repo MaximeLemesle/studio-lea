@@ -46,3 +46,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .mini li{display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.45}
 .mini li::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;border-radius:50%;background:#C9A43A;box-shadow:0 0 0 1.5px #4A2018}
 .chip-incl{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;background:#FFFDF6;border:1.5px solid rgba(74,32,24,.3);font-size:15px}
+@media (max-width: 720px) {
+  html .s-pol1 { width: 172px !important; top: 0 !important; }
+  html .s-pol1 .polaroid-cap { font-size: 17px !important; }
+}
