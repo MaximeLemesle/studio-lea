@@ -10,9 +10,10 @@ const MFOLDERS = [
   { ear: '04 · Rédac', title: 'Rédactionnel', color: '#CFE3C4', href: '/services/redactionnel/', items: ['Articles SEO', 'Newsletters', 'Communiqués de presse'] },
   { ear: '05 · UGC', title: 'UGC', color: '#F4D3B8', href: '/services/ugc/', items: ['Face cam et/ou voix off', '1 an de cession de droits', "Possibilité d'ads"] },
 ];
+import { AFFICHER_TEMOIGNAGES } from '../lib/site';
 ---
 
-<Base title="Studio Béa — Accueil" active="accueil">
+<Base title="Studio Béa · Communication à Angers" description="Léa Audouin, freelance en communication à Angers : réseaux sociaux, audit, graphisme, rédaction et vidéos UGC, partout en France." active="accueil">
 <!-- ===================== 2. HERO ===================== -->
 <section id="accueil" class="grid-brown dark h-hero" style="position:relative;padding:84px 0 120px;color:#F7F0DC">
   <div class="wrap h-hero-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(500px,100%),1fr));gap:64px;align-items:center">
@@ -425,6 +426,7 @@ const MFOLDERS = [
 </section>
 
 <!-- ===================== 9. TÉMOIGNAGES ===================== -->
+{AFFICHER_TEMOIGNAGES && (
 <section class="grid-brown dark h-quotes" style="position:relative;padding:130px 0 150px;color:#F7F0DC">
   <div class="wrap">
     <div class="h-quotes-head" style="display:flex;flex-direction:column;gap:10px;margin-bottom:72px">
@@ -463,6 +465,7 @@ const MFOLDERS = [
     <div class="pager m-only" data-pager aria-hidden="true"><span></span><span></span><span></span></div>
   </div>
 </section>
+)}
 
 <!-- ===================== 10. CTA FINAL ===================== -->
 <section id="contact" class="grid-sage h-cta" style="position:relative;padding:130px 0 140px">

@@ -78,7 +78,7 @@ export async function openFiche(slug: string, opts: { push?: boolean; trigger?: 
     returnFocus = opts.trigger ?? (document.activeElement as HTMLElement | null);
     if (urlBeforeOpen === null) {
       urlBeforeOpen = location.pathname.startsWith('/portfolio/') && location.pathname !== '/portfolio/' ? '/portfolio/' : location.pathname + location.search;
-      titleBeforeOpen = location.pathname.startsWith('/portfolio/') && location.pathname !== '/portfolio/' ? 'Studio Béa — Portfolio' : document.title;
+      titleBeforeOpen = location.pathname.startsWith('/portfolio/') && location.pathname !== '/portfolio/' ? 'Portfolio · Studio Béa' : document.title;
     }
   }
   current = fiche;
@@ -91,7 +91,7 @@ export async function openFiche(slug: string, opts: { push?: boolean; trigger?: 
   if (tab && tab.getAttribute('aria-selected') !== 'true') selectTab(tab);
   fiche.scrollTop = 0;
   fiche.querySelector<HTMLElement>('.vbox')?.scrollTo?.(0, 0);
-  const title = fiche.dataset.title || `Studio Béa — ${fiche.querySelector('.f-title')?.textContent ?? ''}`;
+  const title = fiche.dataset.title || `${fiche.querySelector('.f-title')?.textContent ?? ''} · Portfolio · Studio Béa`;
   document.title = title;
   if (canPush && opts.push !== false && location.pathname !== `/portfolio/${slug}/`) {
     history.pushState({ fiche: slug }, '', `/portfolio/${slug}/`);
@@ -317,6 +317,6 @@ document.querySelectorAll<HTMLDialogElement>('.fiche').forEach(initFiche);
 const initial = document.querySelector<HTMLDialogElement>('.fiche[data-open-on-load]');
 if (initial) {
   urlBeforeOpen = '/portfolio/';
-  titleBeforeOpen = 'Studio Béa — Portfolio';
+  titleBeforeOpen = 'Portfolio · Studio Béa';
   openFiche(initial.dataset.fiche!, { push: false });
 }

@@ -1,18 +1,26 @@
 ---
-// Page introuvable : pas de maquette. Textes à faire valider par Léa (voir README, « Prochaine étape »).
+// Page introuvable : pas de maquette. Textes validés par Léa.
 import Base from '../layouts/Base.astro';
 import '../styles/service.css';
 import '../styles/pages/contact.css';
 ---
-<Base title="Studio Béa — 404">
+<Base title="Page introuvable · Studio Béa">
   <section class="grid-brown dark" style="position:relative;padding:96px 0 140px;color:#F7F0DC">
     <div class="wrap" style="display:flex;flex-direction:column;gap:22px;align-items:flex-start">
       <p class="label" style="color:#F3E9B5">— 404</p>
-      <h1 class="h1" style="color:#F7F0DC"><span class="a-completer">À compléter</span></h1>
+      <h1 class="h1" style="color:#F7F0DC">Oups, cette page s'est envolée !</h1>
+      <p class="lead" style="max-width:560px">Elle a dû glisser de mon carnet… Pas de panique, on retrouve le bon chemin ensemble.</p>
       <div data-m-stack style="display:flex;flex-wrap:wrap;gap:18px;margin-top:8px">
-        <a class="btn btn-primary on-dark" href="/">Accueil</a>
-        <a class="btn btn-secondary on-dark" href="/contact/">Me contacter</a>
+        <a class="btn btn-primary on-dark" href="/">Retour à l'accueil</a>
+        <a class="btn btn-secondary on-dark" href="/portfolio/">Voir le portfolio</a>
       </div>
     </div>
   </section>
 </Base>
+
+<style is:global>
+  .btn-primary.on-dark { background: #F3E9B5; color: #4A2018; border-color: #F3E9B5; }
+  .btn-primary.on-dark:hover { color: #4A2018; }
+  .btn-secondary.on-dark { color: #F7F0DC; border-color: #F7F0DC; }
+  .btn-secondary.on-dark:hover { background: rgba(247, 240, 220, .12); color: #F7F0DC; }
+</style>

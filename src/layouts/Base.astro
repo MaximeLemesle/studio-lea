@@ -36,6 +36,8 @@ const { title, active = null, description, footerSticker = true, bodyClass } = A
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    {process.env.PREVIEW === '1' && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#4A2018" />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

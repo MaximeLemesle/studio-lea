@@ -3,9 +3,10 @@ import Base from '../../layouts/Base.astro';
 import Img from '../../components/Img.astro';
 import '../../styles/service.css';
 import '../../styles/pages/service-audit.css';
+import { AFFICHER_TEMOIGNAGES } from '../../lib/site';
 ---
 
-<Base title="Studio Béa — Audit stratégique" active="services">
+<Base title="Audit stratégique · Studio Béa" description="J'analyse votre communication et vos réseaux sociaux, puis je vous donne un plan d'action clair et concret." active="services">
 <!-- 1. ACCROCHE -->
 <section class="grid-brown dark s-hero" style="position:relative;padding:76px 0 116px;color:#F7F0DC">
   <div class="wrap s-hero-grid" style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:64px;align-items:center">
@@ -222,6 +223,7 @@ import '../../styles/pages/service-audit.css';
 </section>
 
 <!-- TÉMOIGNAGE -->
+{AFFICHER_TEMOIGNAGES && (
 <section class="grid-cream s-temoin" style="position:relative;padding:110px 0 110px">
   <div class="wrap" style="display:flex;flex-direction:column;align-items:center;gap:30px">
     <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
@@ -236,6 +238,7 @@ import '../../styles/pages/service-audit.css';
     </figure>
   </div>
 </section>
+)}
 
 <!-- 7. FAQ -->
 <section class="grid-sage s-faq" style="position:relative;padding:110px 0 120px">

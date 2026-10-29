@@ -15,10 +15,11 @@ const { open } = Astro.props;
 const fiches = import.meta.glob<{ default: any }>('./projets/*.astro', { eager: true });
 const FICHES = PROJETS.map((p) => ({ slug: p.slug, Fiche: fiches[`./projets/${p.slug}.astro`].default }));
 const current = PROJETS.find((p) => p.slug === open);
-const title = current ? `Studio Béa — ${current.title}` : 'Studio Béa — Portfolio';
+const title = current ? `${current.title} · Portfolio · Studio Béa` : 'Portfolio · Studio Béa';
+const description = current?.description ?? 'Découvrez mes projets : réseaux sociaux, graphisme, rédaction et vidéos UGC pour des entreprises de toute la France.';
 ---
 
-<Base title={title} active="portfolio">
+<Base title={title} description={description} active="portfolio">
 <!-- INTRO -->
 <section class="grid-brown dark pf-hero" style="position:relative;padding:76px 0 0;color:#F7F0DC">
   <div class="wrap">

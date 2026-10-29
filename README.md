@@ -49,26 +49,21 @@ Les animations respectent « réduire les animations » du système : le contenu
 
 Les emplacements d'un contenu manquant affichent **« À compléter »** (classe `.a-completer`).
 
-## Prochaine étape : ce que Léa doit fournir ou valider
+## Prochaine étape : ce que Léa doit fournir
 
-**Contenus manquants (affichés « À compléter »)**
-- Adresse email (bouton protégé des mentions légales et réception du formulaire).
-- Vidéos UGC : portfolio (Salon des Pêches, Nutraclear, Albom), page UGC (2 polaroïds du haut, 2 projets) et vidéo Mélatonine de la fiche Nutraclear (repère rouge « vidéo à mettre dans github »).
+**Contenus manquants**
+- Vidéos UGC (Léa les dépose dans le dossier `videos/` du dépôt) : portfolio (Salon des Pêches, Nutraclear, Albom), page UGC (2 polaroïds du haut, 2 projets) et vidéo Mélatonine de la fiche Nutraclear (repère rouge « vidéo à mettre dans github »).
 - Témoignages : 3 sur l'accueil, 1 « Le mot de mes clients » par page service.
-- Photo de la plaquette de La Grange Coworking.
-- Date de mise en ligne (mentions légales et confidentialité) et crédits photo éventuels.
+  Les sections sont masquées : passer `AFFICHER_TEMOIGNAGES` à `true` dans `src/lib/site.ts` pour les réafficher.
 
-**Textes à valider (absents des maquettes)**
-- Page 404.
-- Titres d'onglet et descriptions des pages pour Google.
-- Libellés lus par les lecteurs d'écran : « Aller au contenu », « Retirer <fichier> », « Agrandir : <description> ».
-
-**À fournir plus tard (gardé en mémoire)**
-- Liens des posts manquants : Liquide Imaginaire, Oui à la Qualité, Yubo, AP Ressources Humaines ; lien du reel Royan (t-shirt) à confirmer.
-- Nom de domaine, accès Hostinger.
+**Mise en ligne**
+- Accès Hostinger (hPanel) pour déposer le site sur lea-audouin.fr.
+- Formulaire : `public/api/config.php` (non publié) envoie à l'adresse de Léa via mail() ; si une boîte mail Hostinger est créée, y mettre ses identifiants SMTP.
 
 **Décisions prises**
+- Textes validés : page 404, titres d'onglet et descriptions Google, libellés pour lecteurs d'écran, messages du formulaire.
 - « +6 050 abonnés » : gardé sur l'accueil uniquement.
 - « en coulisses » : retiré des fiches projet mobiles.
+- Pas de crédit photo. Date des pages légales : 29 octobre 2026.
 - Bouton « Voir plus de projets » : masqué tant qu'il n'y a pas plus de 13 projets (les maquettes les montrent tous).
 - Formulaire : aucun service, budget ni délai n'est coché par défaut (la maquette montrait des exemples cochés).

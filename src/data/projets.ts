@@ -7,6 +7,8 @@ export interface Projet {
   services: ServiceKey[];
   cover: string;
   coverAlt: string;
+  /** Description pour Google : première phrase de « Ce que j'ai fait ». */
+  description: string;
 }
 export const PROJETS: Projet[] = [
   {
@@ -19,7 +21,8 @@ export const PROJETS: Projet[] = [
       "ugc"
     ],
     "cover": "projet-salon-peches.jpg",
-    "coverAlt": "Équipe du Salon des Pêches devant le stand"
+    "coverAlt": "Équipe du Salon des Pêches devant le stand",
+    "description": "J'ai géré les réseaux sociaux de deux salons différents : le Salon des Pêches de Royan et celui de Saint-Étienne."
   },
   {
     "slug": "nutraclear",
@@ -30,7 +33,8 @@ export const PROJETS: Projet[] = [
       "ugc"
     ],
     "cover": "projet-nutraclear.jpg",
-    "coverAlt": "Léa présente les compléments Nutraclear"
+    "coverAlt": "Léa présente les compléments Nutraclear",
+    "description": "J'ai géré les réseaux sociaux de Nutraclear sur Facebook, LinkedIn, Instagram et TikTok."
   },
   {
     "slug": "aline-lemesle",
@@ -40,7 +44,8 @@ export const PROJETS: Projet[] = [
       "graphisme"
     ],
     "cover": "services-graphisme.jpg",
-    "coverAlt": "Carte de visite réalisée pour Aline Lemesle"
+    "coverAlt": "Carte de visite réalisée pour Aline Lemesle",
+    "description": "J'ai créé la carte de visite d'Aline Lemesle, à son image, prête à imprimer."
   },
   {
     "slug": "medusor",
@@ -51,7 +56,8 @@ export const PROJETS: Projet[] = [
       "redac"
     ],
     "cover": "pf-medusor.jpg",
-    "coverAlt": "Projet Médusor"
+    "coverAlt": "Projet Médusor",
+    "description": "J'ai pris en charge la communication B2B sur LinkedIn."
   },
   {
     "slug": "fitadium",
@@ -62,7 +68,8 @@ export const PROJETS: Projet[] = [
       "audit"
     ],
     "cover": "pf-fitadium.jpg",
-    "coverAlt": "Studio de tournage Fitadium"
+    "coverAlt": "Studio de tournage Fitadium",
+    "description": "J'ai co-géré la communication de Fitadium sur Instagram, TikTok, LinkedIn et Facebook."
   },
   {
     "slug": "ap-ressources-humaines",
@@ -74,7 +81,8 @@ export const PROJETS: Projet[] = [
       "redac"
     ],
     "cover": "pf-ap-rh.jpg",
-    "coverAlt": "Goodies réalisés pour AP Ressources Humaines"
+    "coverAlt": "Goodies réalisés pour AP Ressources Humaines",
+    "description": "J'ai géré les réseaux sociaux d'AP Ressources Humaines sur Instagram et LinkedIn : création des contenus, planification et publication."
   },
   {
     "slug": "oui-a-la-qualite",
@@ -84,7 +92,8 @@ export const PROJETS: Projet[] = [
       "cm"
     ],
     "cover": "projet-oui-qualite.jpg",
-    "coverAlt": "Projet Oui à la Qualité en Pays de la Loire"
+    "coverAlt": "Projet Oui à la Qualité en Pays de la Loire",
+    "description": "J'ai animé les réseaux sociaux de Oui à la Qualité en Pays de la Loire sur Instagram, Facebook et LinkedIn : création des contenus, planification et publication."
   },
   {
     "slug": "msa",
@@ -94,7 +103,8 @@ export const PROJETS: Projet[] = [
       "graphisme"
     ],
     "cover": "pf-msa.jpg",
-    "coverAlt": "Affiche « La santé mentale des agriculteurs » réalisée pour la MSA"
+    "coverAlt": "Affiche « La santé mentale des agriculteurs » réalisée pour la MSA",
+    "description": "J'ai réalisé une infographie sur la santé mentale des agriculteurs."
   },
   {
     "slug": "produit-loco",
@@ -104,7 +114,8 @@ export const PROJETS: Projet[] = [
       "graphisme"
     ],
     "cover": "pf-produit-loco.jpg",
-    "coverAlt": "Packaging réalisé pour Produit Loco"
+    "coverAlt": "Packaging réalisé pour Produit Loco",
+    "description": "J'ai créé toute l'identité visuelle de Produit Loco et ses déclinaisons : affiche, flyer, kakemono, magazine et cartes de visite."
   },
   {
     "slug": "liquide-imaginaire",
@@ -114,7 +125,8 @@ export const PROJETS: Projet[] = [
       "cm"
     ],
     "cover": "pf-liquide-imaginaire.jpg",
-    "coverAlt": "Projet Liquide Imaginaire"
+    "coverAlt": "Projet Liquide Imaginaire",
+    "description": "J'ai géré les réseaux sociaux de Liquide Imaginaire en anglais."
   },
   {
     "slug": "yubo",
@@ -124,7 +136,8 @@ export const PROJETS: Projet[] = [
       "cm"
     ],
     "cover": "pf-yubo.jpg",
-    "coverAlt": "Projet Yubo"
+    "coverAlt": "Projet Yubo",
+    "description": "J'ai géré la communication de marque employeur de Yubo sur LinkedIn."
   },
   {
     "slug": "la-grange-coworking",
@@ -135,7 +148,8 @@ export const PROJETS: Projet[] = [
       "graphisme"
     ],
     "cover": "pf-la-grange.jpg",
-    "coverAlt": "Projet La Grange Coworking"
+    "coverAlt": "Projet La Grange Coworking",
+    "description": "J'ai géré les réseaux sociaux de La Grange Coworking sur Instagram et Facebook : création des contenus, planification et publication."
   },
   {
     "slug": "brand-style",
@@ -145,6 +159,7 @@ export const PROJETS: Projet[] = [
       "graphisme"
     ],
     "cover": "pf-brand-style.jpg",
-    "coverAlt": "Projet Brand Style"
+    "coverAlt": "Projet Brand Style",
+    "description": "J'ai créé l'identité visuelle du jeu de cartes Brand Style : logo, couleurs et déclinaisons."
   }
 ];

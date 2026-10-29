@@ -22,3 +22,7 @@ export const SERVICES = [
 
 /** Texte affiché à la place d'un contenu que Léa doit encore fournir. */
 export const A_COMPLETER = 'À compléter';
+
+/** Témoignages (accueil et « Le mot de mes clients » des pages service) : masqués tant qu'ils ne sont pas fournis.
+ *  Passer à true pour les réafficher. */
+export const AFFICHER_TEMOIGNAGES = false;
