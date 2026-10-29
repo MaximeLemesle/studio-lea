@@ -106,9 +106,17 @@ if (wall) {
 // Les vidéos s'activent dès qu'un fichier est renseigné (data-video sur .vid).
 document.querySelectorAll<HTMLElement>('.vid[data-video]').forEach((card) => {
   const video = card.querySelector('video');
+  const stop = () => { video?.pause(); if (video) video.currentTime = 0; card.classList.remove('is-playing'); };
   if (video) {
-    card.addEventListener('mouseenter', () => { if (!reduceMotion()) video.play().catch(() => {}); });
-    card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+    card.addEventListener('mouseenter', () => {
+      if (reduceMotion()) return;
+      video.play().then(() => card.classList.add('is-playing')).catch(() => {});
+    });
+    card.addEventListener('mouseleave', stop);
   }
-  card.addEventListener('click', () => openLightbox(card, [card]));
+  const open = () => { stop(); openLightbox(card, [card]); };
+  card.addEventListener('click', open);
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+  });
 });

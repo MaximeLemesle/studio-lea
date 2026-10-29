@@ -45,6 +45,8 @@
 .fiche .ex-zoom { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: inherit; color: inherit; font: inherit; }
 .fiche .ex-zoom .polaroid { transition: transform .25s ease; }
 @media (hover: hover) { .fiche .ex-zoom:hover .polaroid { transform: rotate(0deg) scale(1.02) !important; } }
+.fiche .ex-video { cursor: pointer; }
+.fiche .ex-video .play { position: absolute; left: 50%; top: calc(50% - 15px); translate: -50% -50%; width: 54px; height: 54px; border-radius: 50%; background: rgba(74,32,24,.88); display: flex; align-items: center; justify-content: center; }
 .fiche .ph .a-completer { font-size: 11px; }
 .fiche .f-script { font-size: 40px; text-align: right; margin: -4px 6px 0 0; transform: rotate(-5deg); }
 
