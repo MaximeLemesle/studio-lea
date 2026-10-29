@@ -123,9 +123,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   html .ap-funs .fun:nth-child(3) { margin-right: 24px; }
   html .ap-funs .washi { width: 84px !important; top: -12px !important; left: 50% !important; right: auto !important; margin-left: -42px !important; }
   html .ap-funs .h3 { font-size: 20px !important; }
-  html .ap-more { margin-top: 40px !important; }
-  html .ap-more > div { padding: 20px 18px !important; outline-offset: -7px !important; }
-  html .ap-more .note { font-size: 21px !important; }
 }
 @media (max-width: 720px) {
   html .ap-kpis .kpi { padding: 24px 14px 16px; gap: 4px; }

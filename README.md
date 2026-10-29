@@ -56,7 +56,6 @@ Les emplacements d'un contenu manquant affichent **« À compléter »** (classe
 - Vidéos UGC : portfolio (Salon des Pêches, Nutraclear, Albom) et page UGC (2 polaroïds du haut, 2 projets).
 - Témoignages : 3 sur l'accueil, 1 « Le mot de mes clients » par page service.
 - Photo de la plaquette de La Grange Coworking.
-- Autres fun facts pour la page À propos (encadré en pointillés).
 - Date de mise en ligne (mentions légales et confidentialité) et crédits photo éventuels.
 
 **Textes à valider (absents des maquettes)**
