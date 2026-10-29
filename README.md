@@ -53,7 +53,7 @@ Les emplacements d'un contenu manquant affichent **« À compléter »** (classe
 
 **Contenus manquants (affichés « À compléter »)**
 - Adresse email (bouton protégé des mentions légales et réception du formulaire).
-- Vidéos UGC : portfolio (Salon des Pêches, Nutraclear, Albom) et page UGC (2 polaroïds du haut, 2 projets).
+- Vidéos UGC : portfolio (Salon des Pêches, Nutraclear, Albom), page UGC (2 polaroïds du haut, 2 projets) et vidéo Mélatonine de la fiche Nutraclear (repère rouge « vidéo à mettre dans github »).
 - Témoignages : 3 sur l'accueil, 1 « Le mot de mes clients » par page service.
 - Photo de la plaquette de La Grange Coworking.
 - Date de mise en ligne (mentions légales et confidentialité) et crédits photo éventuels.
