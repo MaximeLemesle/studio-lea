@@ -295,8 +295,15 @@ document.addEventListener('click', (e) => {
   const zoom = target.closest<HTMLElement>('[data-zoom]');
   if (zoom) {
     e.preventDefault();
+    // Polaroïd regroupant plusieurs photos (ex. la plaquette de La Grange) : on parcourt ses photos
+    if (zoom.hasAttribute('data-gallery')) {
+      openLightbox(zoom, Array.from(zoom.querySelectorAll<HTMLElement>('[data-gallery-item]')));
+      return;
+    }
     const scope = zoom.closest('[role="tabpanel"]') ?? zoom.closest('.fiche') ?? document;
-    openLightbox(zoom, Array.from(scope.querySelectorAll<HTMLElement>('[data-zoom]')));
+    const items = Array.from(scope.querySelectorAll<HTMLElement>('[data-zoom]')).flatMap((z) =>
+      z.hasAttribute('data-gallery') ? Array.from(z.querySelectorAll<HTMLElement>('[data-gallery-item]')) : [z]);
+    openLightbox(zoom, items);
     return;
   }
   const link = target.closest<HTMLAnchorElement>('a[data-projet]');
