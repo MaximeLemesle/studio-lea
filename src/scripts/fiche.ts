@@ -54,7 +54,8 @@ function neighbour(fiche: HTMLDialogElement, dir: 'prev' | 'next'): string | nul
   const wall = document.querySelector<HTMLElement>('[data-wall]');
   const slug = fiche.dataset.fiche!;
   if (wall) {
-    const visible = Array.from(wall.querySelectorAll<HTMLElement>('[data-wall-item]:not([hidden])')).map((el) => el.dataset.slug!);
+    const visible = Array.from(wall.querySelectorAll<HTMLElement>('[data-wall-item]:not([hidden])'))
+      .sort((a, b) => Number(a.dataset.order) - Number(b.dataset.order)).map((el) => el.dataset.slug!);
     const i = visible.indexOf(slug);
     if (i !== -1 && visible.length > 1) {
       return visible[(i + (dir === 'next' ? 1 : -1) + visible.length) % visible.length];

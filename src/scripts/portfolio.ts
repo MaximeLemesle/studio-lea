@@ -8,6 +8,8 @@ const INITIAL = 13;
 
 const wall = document.querySelector<HTMLElement>('[data-wall]');
 const items = Array.from(document.querySelectorAll<HTMLElement>('[data-wall-item]'));
+// ordre du portfolio, conservé même quand les cartes sont réparties dans les colonnes
+items.forEach((el, i) => (el.dataset.order = String(i)));
 const filters = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter]'));
 const more = document.querySelector<HTMLButtonElement>('[data-more]');
 const count = document.querySelector<HTMLElement>('.pf-count');
@@ -49,6 +51,31 @@ function apply(animate: boolean) {
   if (count) count.textContent = `${filter === 'tous' ? items.length : shown} projet${(filter === 'tous' ? items.length : shown) > 1 ? 's' : ''}`;
 }
 
+/* Répartition à tour de rôle : 3 colonnes sur ordinateur, 2 sur tablette ; sur mobile, la grille simple des maquettes. */
+const mq = { mobile: window.matchMedia('(max-width: 720px)'), tablette: window.matchMedia('(max-width: 1100px)') };
+let pending = 0;
+function columns() {
+  if (!wall) return;
+  cancelAnimationFrame(pending);
+  pending = requestAnimationFrame(() => {
+    wall.querySelectorAll('.wall-col').forEach((col) => col.remove());
+    const n = mq.mobile.matches ? 0 : mq.tablette.matches ? 2 : 3;
+    wall.classList.toggle('is-cols', n > 0);
+    if (!n) {
+      wall.append(...items);
+      return;
+    }
+    const cols = Array.from({ length: n }, () => {
+      const col = document.createElement('div');
+      col.className = 'wall-col';
+      return col;
+    });
+    let i = 0;
+    items.forEach((el) => cols[el.hidden ? 0 : i++ % n].appendChild(el));
+    wall.append(...cols);
+  });
+}
+
 if (wall) {
   // ?filtre=cm depuis « Voir les projets » de la page Services
   const depuis = filters.find((b) => b.dataset.filter === new URLSearchParams(location.search).get('filtre'));
@@ -57,6 +84,10 @@ if (wall) {
     filters.forEach((b) => b.setAttribute('aria-pressed', String(b === depuis)));
   }
   apply(false);
+  columns();
+  new MutationObserver(columns).observe(wall, { subtree: true, attributes: true, attributeFilter: ['hidden'] });
+  mq.mobile.addEventListener('change', columns);
+  mq.tablette.addEventListener('change', columns);
   filters.forEach((btn) => {
     btn.addEventListener('click', () => {
       filter = btn.dataset.filter!;
