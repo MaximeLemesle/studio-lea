@@ -49,6 +49,24 @@ function apply(animate: boolean) {
   if (count) count.textContent = `${filter === 'tous' ? items.length : shown} projet${(filter === 'tous' ? items.length : shown) > 1 ? 's' : ''}`;
 }
 
+/* Mur rempli ligne par ligne : chaque carte occupe autant de rangées de 4 px que sa hauteur (+ 56 px d'écart).
+   Sur mobile, la grille simple à 2 colonnes des maquettes suffit. */
+const ROW = 4;
+const GAP = 56;
+const mobile = window.matchMedia('(max-width: 720px)');
+let pending = 0;
+function masonry() {
+  if (!wall) return;
+  cancelAnimationFrame(pending);
+  pending = requestAnimationFrame(() => {
+    const on = !mobile.matches;
+    wall.classList.toggle('is-masonry', on);
+    items.forEach((el) => {
+      el.style.gridRowEnd = on && !el.hidden ? `span ${Math.ceil((el.getBoundingClientRect().height + GAP) / ROW)}` : '';
+    });
+  });
+}
+
 if (wall) {
   // ?filtre=cm depuis « Voir les projets » de la page Services
   const depuis = filters.find((b) => b.dataset.filter === new URLSearchParams(location.search).get('filtre'));
@@ -57,6 +75,11 @@ if (wall) {
     filters.forEach((b) => b.setAttribute('aria-pressed', String(b === depuis)));
   }
   apply(false);
+  masonry();
+  const ro = new ResizeObserver(masonry);
+  items.forEach((el) => ro.observe(el));
+  new MutationObserver(masonry).observe(wall, { subtree: true, attributes: true, attributeFilter: ['hidden'] });
+  mobile.addEventListener('change', masonry);
   filters.forEach((btn) => {
     btn.addEventListener('click', () => {
       filter = btn.dataset.filter!;
