@@ -1,18 +1,17 @@
 // Formulaire de contact : validation (au blur puis à l'envoi), pièces jointes (A14),
 // pré-remplissage depuis le calculateur « À l'unité », envoi et état « envoyée ! » (A13, M16).
 
-// Messages d'erreur : seul celui de l'email sans « @ » figure dans les maquettes.
-// Les autres sont à valider par Léa (voir « Prochaine étape » dans le README).
+// Messages d'erreur validés par Léa.
 const MESSAGES = {
-  nom: 'À compléter',
-  emailVide: 'À compléter',
+  nom: 'Indiquez votre prénom et votre nom.',
+  emailVide: 'Indiquez votre email.',
   emailArobase: 'Oups, il manque le @ dans votre email.',
-  emailFormat: 'À compléter',
-  message: 'À compléter',
-  rgpd: 'À compléter',
-  fichierType: 'À compléter',
-  fichierTaille: 'À compléter',
-  envoi: 'À compléter',
+  emailFormat: 'Cet email semble incomplet.',
+  message: 'Écrivez-moi quelques mots.',
+  rgpd: 'Cochez cette case pour que je puisse vous répondre.',
+  fichierType: 'Seuls les PDF, JPG et PNG sont acceptés.',
+  fichierTaille: 'Vos fichiers dépassent 10 Mo.',
+  envoi: "Votre lettre n'est pas partie, réessayez dans un instant.",
 };
 const MAX_TOTAL = 10 * 1024 * 1024;
 const TYPES = ['application/pdf', 'image/jpeg', 'image/png'];

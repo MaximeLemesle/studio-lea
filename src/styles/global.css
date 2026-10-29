@@ -235,7 +235,12 @@ button.btn { background-clip: padding-box; }
    Sans JavaScript ou avec « réduire les animations », tout reste à l'état final.
    ========================================================================== */
 @keyframes draw { to { stroke-dashoffset: 0; } }
-@keyframes write { from { clip-path: inset(-20% 100% -20% 0); } to { clip-path: inset(-20% -5% -20% 0); } }
+/* « s'écrit à la main » : si le navigateur n'anime pas clip-path, le texte reste simplement visible */
+@keyframes write {
+  0% { opacity: 1; -webkit-clip-path: inset(-50% 100% -50% -10%); clip-path: inset(-50% 100% -50% -10%); }
+  99% { opacity: 1; -webkit-clip-path: inset(-50% -10% -50% -10%); clip-path: inset(-50% -10% -50% -10%); }
+  100% { opacity: 1; -webkit-clip-path: none; clip-path: none; }
+}
 @keyframes fade-up { from { opacity: 0; translate: 0 14px; } to { opacity: 1; translate: 0 0; } }
 @keyframes drop {
   0% { opacity: 0; translate: 0 -90px; rotate: 7deg; }
@@ -264,11 +269,10 @@ button.btn { background-clip: padding-box; }
 @media (prefers-reduced-motion: no-preference) {
   html.js [data-anim] { --d: calc(var(--i, 0) * var(--step, 140ms)); }
   html.js [data-anim]:not(.in) { opacity: 0; }
-  html.js [data-anim="write"]:not(.in) { opacity: 1; clip-path: inset(-20% 100% -20% 0); }
   html.js [data-anim="draw"]:not(.in), html.js [data-anim="swing"]:not(.in), html.js [data-anim="sheet"]:not(.in), html.js [data-anim="count"]:not(.in), html.js [data-anim="pendulum"]:not(.in) { opacity: 1; }
 
   [data-anim].in { animation-fill-mode: both; animation-delay: var(--d); }
-  [data-anim="write"].in { animation: write 1.3s cubic-bezier(.45, .1, .4, 1) var(--d) both; }
+  [data-anim="write"].in { opacity: 1; animation: write 1.3s cubic-bezier(.45, .1, .4, 1) var(--d) both; }
   [data-anim="fade"].in { animation: fade-up .7s ease-out var(--d) both; }
   [data-anim="drop"].in { animation: drop .95s cubic-bezier(.3, .7, .3, 1) var(--d) both; }
   [data-anim="from-right"].in { animation: from-right .6s ease-out var(--d) both; }

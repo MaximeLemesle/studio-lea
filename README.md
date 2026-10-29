@@ -60,16 +60,16 @@ Les emplacements d'un contenu manquant affichent **« À compléter »** (classe
 - Date de mise en ligne (mentions légales et confidentialité) et crédits photo éventuels.
 
 **Textes à valider (absents des maquettes)**
-- Phrase de la page Confidentialité qui remplace la mention de Mailchimp.
-- Messages d'erreur du formulaire (seul « Oups, il manque le @ dans votre email. » est validé) et message en cas d'échec d'envoi.
 - Page 404.
 - Titres d'onglet et descriptions des pages pour Google.
-- Libellés accessibles ajoutés : « Aller au contenu », « Retirer <fichier> », « Agrandir : <description> ».
+- Libellés lus par les lecteurs d'écran : « Aller au contenu », « Retirer <fichier> », « Agrandir : <description> ».
 
-**Décisions**
-- Chiffre « +6 050 abonnés » (accueil, page CM).
+**À fournir plus tard (gardé en mémoire)**
 - Liens des posts manquants : Liquide Imaginaire, Oui à la Qualité, Yubo, AP Ressources Humaines ; lien du reel Royan (t-shirt) à confirmer.
+- Nom de domaine, accès Hostinger.
+
+**Décisions prises**
+- « +6 050 abonnés » : gardé sur l'accueil uniquement.
+- « en coulisses » : retiré des fiches projet mobiles.
 - Bouton « Voir plus de projets » : masqué tant qu'il n'y a pas plus de 13 projets (les maquettes les montrent tous).
 - Formulaire : aucun service, budget ni délai n'est coché par défaut (la maquette montrait des exemples cochés).
-- Accroche « en coulisses » sous le titre des fiches projet mobiles (présente dans le modèle mobile, absente des fiches desktop).
-- Nom de domaine, accès Hostinger.
