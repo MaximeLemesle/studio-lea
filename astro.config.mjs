@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 // pour générer les URL canoniques et le plan du site.
 export default defineConfig({
   trailingSlash: 'always',
-  build: { format: 'directory', inlineStylesheets: 'auto' },
+  build: { format: 'directory', inlineStylesheets: 'auto', assets: 'assets' },
   image: { responsiveStyles: false },
   devToolbar: { enabled: false },
 });

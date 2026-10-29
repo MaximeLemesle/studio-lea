@@ -8,6 +8,11 @@ import { initAnimations } from './main';
 const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isMobile = () => window.matchMedia('(max-width: 720px)').matches;
 
+// Aperçu hébergé (dossier sans réécriture d'URL) : liens relatifs, pas d'URL par fiche dans l'historique.
+const PREVIEW_ROOT = document.documentElement.dataset.root;
+const ficheUrl = (slug: string) => (PREVIEW_ROOT !== undefined ? `${PREVIEW_ROOT}portfolio/${slug}/index.html` : `/portfolio/${slug}/`);
+const canPush = PREVIEW_ROOT === undefined;
+
 let current: HTMLDialogElement | null = null;
 let returnFocus: HTMLElement | null = null;
 let urlBeforeOpen: string | null = null;
@@ -19,11 +24,20 @@ async function loadFiche(slug: string): Promise<HTMLDialogElement | null> {
   const existing = ficheOf(slug);
   if (existing) return existing;
   try {
-    const res = await fetch(`/portfolio/${slug}/`);
+    const res = await fetch(ficheUrl(slug));
     if (!res.ok) return null;
     const doc = new DOMParser().parseFromString(await res.text(), 'text/html');
     const remote = doc.getElementById(`fiche-${slug}`);
     if (!remote) return null;
+    // les chemins de la fiche sont relatifs à sa propre page : on les rend absolus
+    remote.querySelectorAll<HTMLElement>('[src], [srcset], [href], [data-full]').forEach((el) => {
+      for (const attr of ['src', 'href', 'data-full']) {
+        const v = el.getAttribute(attr);
+        if (v && !v.startsWith('#')) el.setAttribute(attr, new URL(v, res.url).href);
+      }
+      const set = el.getAttribute('srcset');
+      if (set) el.setAttribute('srcset', set.split(',').map((s) => { const [u, ...d] = s.trim().split(/\s+/); return [new URL(u, res.url).href, ...d].join(' '); }).join(', '));
+    });
     const fiche = document.importNode(remote, true) as HTMLDialogElement;
     fiche.removeAttribute('open');
     fiche.dataset.title = doc.title;
@@ -52,7 +66,7 @@ function neighbour(fiche: HTMLDialogElement, dir: 'prev' | 'next'): string | nul
 export async function openFiche(slug: string, opts: { push?: boolean; trigger?: HTMLElement | null } = {}) {
   const fiche = await loadFiche(slug);
   if (!fiche) {
-    window.location.href = `/portfolio/${slug}/`;
+    window.location.href = ficheUrl(slug);
     return;
   }
   const switching = current && current !== fiche;
@@ -74,7 +88,7 @@ export async function openFiche(slug: string, opts: { push?: boolean; trigger?: 
   fiche.querySelector<HTMLElement>('.vbox')?.scrollTo?.(0, 0);
   const title = fiche.dataset.title || `Studio Béa — ${fiche.querySelector('.f-title')?.textContent ?? ''}`;
   document.title = title;
-  if (opts.push !== false && location.pathname !== `/portfolio/${slug}/`) {
+  if (canPush && opts.push !== false && location.pathname !== `/portfolio/${slug}/`) {
     history.pushState({ fiche: slug }, '', `/portfolio/${slug}/`);
   }
   fiche.querySelector<HTMLElement>('[data-fiche-close]')?.focus({ preventScroll: true });
@@ -89,7 +103,7 @@ export function closeFiche(opts: { push?: boolean } = {}) {
     if (fiche.open) fiche.close();
     document.documentElement.style.overflow = '';
     document.title = titleBeforeOpen;
-    if (opts.push !== false && urlBeforeOpen !== null) history.pushState({}, '', urlBeforeOpen);
+    if (canPush && opts.push !== false && urlBeforeOpen !== null) history.pushState({}, '', urlBeforeOpen);
     urlBeforeOpen = null;
     if (returnFocus && document.contains(returnFocus)) returnFocus.focus({ preventScroll: true });
     returnFocus = null;
