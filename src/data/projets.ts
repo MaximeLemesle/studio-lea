@@ -10,20 +10,9 @@ export interface Projet {
 }
 export const PROJETS: Projet[] = [
   {
-    "slug": "medusor",
-    "title": "Médusor",
-    "index": 1,
-    "services": [
-      "cm",
-      "redac"
-    ],
-    "cover": "pf-medusor.jpg",
-    "coverAlt": "Projet Médusor"
-  },
-  {
     "slug": "salon-des-peches",
     "title": "Salon des Pêches",
-    "index": 2,
+    "index": 1,
     "services": [
       "cm",
       "redac",
@@ -33,25 +22,36 @@ export const PROJETS: Projet[] = [
     "coverAlt": "Équipe du Salon des Pêches devant le stand"
   },
   {
-    "slug": "liquide-imaginaire",
-    "title": "Liquide Imaginaire",
-    "index": 3,
-    "services": [
-      "cm"
-    ],
-    "cover": "pf-liquide-imaginaire.jpg",
-    "coverAlt": "Projet Liquide Imaginaire"
-  },
-  {
     "slug": "nutraclear",
     "title": "Nutraclear",
-    "index": 4,
+    "index": 2,
     "services": [
       "cm",
       "ugc"
     ],
     "cover": "projet-nutraclear.jpg",
     "coverAlt": "Léa présente les compléments Nutraclear"
+  },
+  {
+    "slug": "aline-lemesle",
+    "title": "Aline Lemesle",
+    "index": 3,
+    "services": [
+      "graphisme"
+    ],
+    "cover": "services-graphisme.jpg",
+    "coverAlt": "Carte de visite réalisée pour Aline Lemesle"
+  },
+  {
+    "slug": "medusor",
+    "title": "Médusor",
+    "index": 4,
+    "services": [
+      "cm",
+      "redac"
+    ],
+    "cover": "pf-medusor.jpg",
+    "coverAlt": "Projet Médusor"
   },
   {
     "slug": "fitadium",
@@ -87,29 +87,9 @@ export const PROJETS: Projet[] = [
     "coverAlt": "Projet Oui à la Qualité en Pays de la Loire"
   },
   {
-    "slug": "aline-lemesle",
-    "title": "Aline Lemesle",
-    "index": 8,
-    "services": [
-      "graphisme"
-    ],
-    "cover": "services-graphisme.jpg",
-    "coverAlt": "Carte de visite réalisée pour Aline Lemesle"
-  },
-  {
-    "slug": "yubo",
-    "title": "Yubo",
-    "index": 9,
-    "services": [
-      "cm"
-    ],
-    "cover": "pf-yubo.jpg",
-    "coverAlt": "Projet Yubo"
-  },
-  {
     "slug": "msa",
     "title": "MSA",
-    "index": 10,
+    "index": 8,
     "services": [
       "graphisme"
     ],
@@ -117,25 +97,45 @@ export const PROJETS: Projet[] = [
     "coverAlt": "Affiche « La santé mentale des agriculteurs » réalisée pour la MSA"
   },
   {
+    "slug": "produit-loco",
+    "title": "Produit Loco",
+    "index": 9,
+    "services": [
+      "graphisme"
+    ],
+    "cover": "pf-produit-loco.jpg",
+    "coverAlt": "Packaging réalisé pour Produit Loco"
+  },
+  {
+    "slug": "liquide-imaginaire",
+    "title": "Liquide Imaginaire",
+    "index": 10,
+    "services": [
+      "cm"
+    ],
+    "cover": "pf-liquide-imaginaire.jpg",
+    "coverAlt": "Projet Liquide Imaginaire"
+  },
+  {
+    "slug": "yubo",
+    "title": "Yubo",
+    "index": 11,
+    "services": [
+      "cm"
+    ],
+    "cover": "pf-yubo.jpg",
+    "coverAlt": "Projet Yubo"
+  },
+  {
     "slug": "la-grange-coworking",
     "title": "La Grange Coworking",
-    "index": 11,
+    "index": 12,
     "services": [
       "cm",
       "graphisme"
     ],
     "cover": "pf-la-grange.jpg",
     "coverAlt": "Projet La Grange Coworking"
-  },
-  {
-    "slug": "produit-loco",
-    "title": "Produit Loco",
-    "index": 12,
-    "services": [
-      "graphisme"
-    ],
-    "cover": "pf-produit-loco.jpg",
-    "coverAlt": "Packaging réalisé pour Produit Loco"
   },
   {
     "slug": "brand-style",
