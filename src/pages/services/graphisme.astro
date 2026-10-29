@@ -102,7 +102,7 @@ import '../../styles/pages/service-graphisme.css';
           <li>2 allers-retours inclus</li>
         </ul>
         <p class="note" style="font-size:20px;margin-top:auto">Livré en PDF. Impression non comprise.</p>
-        <a class="btn btn-secondary" href="/contact/" style="align-self:flex-start">Choisir ce kit</a>
+        <a class="btn btn-secondary" href="/contact/?formule=graphisme-independant" style="align-self:flex-start">Choisir ce kit</a>
       </article>
 
       <article class="formule lined" data-anim="land" style="transform:rotate(.8deg);box-shadow:0 0 0 3px #4A2018,0 18px 34px rgba(40,15,10,.22)">
@@ -117,7 +117,7 @@ import '../../styles/pages/service-graphisme.css';
           <li>2 allers-retours inclus</li>
         </ul>
         <p class="note" style="font-size:20px;margin-top:auto">Templates livrés en modèles Canva pour rester autonome, flyer en PDF. Impression non comprise.</p>
-        <a class="btn btn-primary" href="/contact/" style="align-self:flex-start">Choisir ce kit</a>
+        <a class="btn btn-primary" href="/contact/?formule=graphisme-lancement" style="align-self:flex-start">Choisir ce kit</a>
       </article>
 
       <article class="formule postit" data-anim="land" style="transform:rotate(-.6deg);outline:2px dashed rgba(74,32,24,.45);outline-offset:-12px">
@@ -336,6 +336,8 @@ import '../../styles/pages/service-graphisme.css';
   const totalEl = document.querySelector<HTMLElement>('[data-total]');
   const hint = document.querySelector<HTMLElement>('[data-kit-hint]');
   const devis = document.querySelector<HTMLAnchorElement>('[data-devis]');
+  // adresse de base du formulaire (relative dans l'aperçu en ligne)
+  const devisBase = devis?.getAttribute('href') ?? '/contact/';
 
   function update() {
     const selected = picks.filter((b) => b.classList.contains('on'));
@@ -344,7 +346,7 @@ import '../../styles/pages/service-graphisme.css';
     hint?.classList.toggle('show', total >= 250);
     if (devis) {
       const keys = selected.map((b) => b.dataset.pick).join(',');
-      devis.href = keys ? `/contact/?devis=${keys}` : '/contact/';
+      devis.href = keys ? `${devisBase}?devis=${keys}` : devisBase;
     }
   }
   picks.forEach((b) => b.addEventListener('click', () => {

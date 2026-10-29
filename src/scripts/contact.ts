@@ -27,12 +27,23 @@ const UNITE: Record<string, [string, string]> = {
   banderole: ['Banderole', '160 €'],
   infographie: ['Infographie', 'dès 180 €'],
 };
-// Formules des pages service (boutons « Choisir… ») : [service, formule, couleur du dossier].
-const FORMULES: Record<string, [string, string, string]> = {
-  'cm-essentiel': ['Community management', "L'essentiel", '#F2E3A0'],
-  'cm-reguliere': ['Community management', 'La régulière', '#F2E3A0'],
-  'audit-sans': ['Audit stratégique', 'Sans existant', '#C9D6EC'],
-  'audit-avec': ['Audit stratégique', 'Avec existant', '#C9D6EC'],
+// Formules des pages service (boutons « Choisir… ») : [service, formule].
+const FORMULES: Record<string, [string, string]> = {
+  'cm-essentiel': ['Community management', "L'essentiel"],
+  'cm-reguliere': ['Community management', 'La régulière'],
+  'audit-sans': ['Audit stratégique', 'Sans existant'],
+  'audit-avec': ['Audit stratégique', 'Avec existant'],
+  'graphisme-independant': ['Graphisme', 'Le kit indépendant'],
+  'graphisme-lancement': ['Graphisme', 'Le kit lancement'],
+  'redac-article': ['Rédactionnel', "L'article SEO"],
+  'redac-newsletter': ['Rédactionnel', 'La newsletter'],
+  'redac-communique': ['Rédactionnel', 'Le communiqué de presse'],
+  'ugc-1': ['UGC', 'Le pack 1 vidéo'],
+  'ugc-3': ['UGC', 'Le pack 3 vidéos'],
+};
+// Couleur du dossier de chaque service
+const COULEURS: Record<string, string> = {
+  'Community management': '#F2E3A0', 'Audit stratégique': '#C9D6EC', Graphisme: '#EFC9D2', Rédactionnel: '#CFE3C4', UGC: '#F4D3B8',
 };
 const PRIX: Record<string, number> = { carte: 120, signature: 60, doc: 90, rs: 70, flyer: 150, etiquette: 90, banderole: 160, infographie: 180 };
 
@@ -145,31 +156,33 @@ if (form) {
     }
   });
 
-  /* ---------- Formule choisie : on n'affiche que son nom à la place des dossiers, budget et délai ---------- */
-  const formule = FORMULES[new URLSearchParams(location.search).get('formule') ?? ''];
-  if (formule) {
+  /* ---------- Formule choisie ou calculateur : on n'affiche que les noms choisis à la place des dossiers, budget et délai ---------- */
+  function showChoix(service: string, noms: string[], valeur: string) {
     const box = $<HTMLElement>('[data-formule]');
-    const nomFormule = $<HTMLElement>('[data-formule-nom]');
-    nomFormule.textContent = formule[1];
-    nomFormule.style.background = formule[2];
-    $<HTMLInputElement>('input[name="formule"]').value = `${formule[0]} · ${formule[1]}`;
+    noms.forEach((nomChoisi, i) => {
+      const chip = document.createElement('span');
+      chip.className = 'chip ct-formule';
+      chip.style.background = COULEURS[service];
+      chip.style.rotate = `${i % 2 ? 1 : -1.5}deg`;
+      chip.textContent = nomChoisi;
+      box.insertBefore(chip, box.lastElementChild);
+    });
+    $<HTMLInputElement>('input[name="formule"]').value = valeur;
     box.hidden = false;
-    form.querySelectorAll<HTMLElement>('[data-sans-formule]').forEach((el) => {
+    form!.querySelectorAll<HTMLElement>('[data-sans-formule]').forEach((el) => {
       el.hidden = true;
       el.querySelectorAll('input').forEach((i) => (i.disabled = true));
     });
   }
-
-  /* ---------- Pré-remplissage depuis le calculateur (?devis=carte,flyer) ---------- */
-  const devis = new URLSearchParams(location.search).get('devis');
-  if (devis) {
-    const keys = devis.split(',').filter((k) => k in UNITE);
-    if (keys.length) {
-      const total = keys.reduce((s, k) => s + PRIX[k], 0);
-      message.value = keys.map((k) => `${UNITE[k][0]} — ${UNITE[k][1]}`).join('\n') + `\nTotal estimé : ${total} €`;
-      const graph = form.querySelector<HTMLInputElement>('input[name="services[]"][value="Graphisme"]');
-      if (graph) graph.checked = true;
-    }
+  const params = new URLSearchParams(location.search);
+  const formule = FORMULES[params.get('formule') ?? ''];
+  // Calculateur « À l'unité » de la page Graphisme (?devis=carte,flyer)
+  const devis = (params.get('devis') ?? '').split(',').filter((k) => k in UNITE);
+  if (formule) showChoix(formule[0], [formule[1]], `${formule[0]} · ${formule[1]}`);
+  else if (devis.length) {
+    const total = devis.reduce((s, k) => s + PRIX[k], 0);
+    showChoix('Graphisme', devis.map((k) => UNITE[k][0]),
+      `Graphisme · À l'unité : ${devis.map((k) => `${UNITE[k][0]} : ${UNITE[k][1]}`).join(', ')} · Total estimé : ${total} €`);
   }
 
   /* ---------- Envoi ---------- */
