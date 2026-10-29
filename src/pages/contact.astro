@@ -37,7 +37,9 @@ import '../styles/pages/contact.css';
           <div class="field" style="grid-column:1 / -1"><label for="c-ent">Entreprise / activité</label><input id="c-ent" name="entreprise" type="text" placeholder="ex. La Petite Boulangerie, Angers" autocomplete="organization"></div>
         </div>
 
-        <fieldset style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:12px">
+        <div class="chips" data-formule hidden><span class="chip ct-formule" data-formule-nom></span><input type="hidden" name="formule" value="" /></div>
+
+        <fieldset data-sans-formule style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:12px">
           <legend class="flabel" style="padding:0;margin-bottom:12px">Les dossiers qui vous intéressent</legend>
           <div class="chips">
             <label class="chip" style="background:#F2E3A0;transform:rotate(-1.5deg)"><input type="checkbox" name="services[]" value="Community management"> Community management</label>
@@ -48,7 +50,7 @@ import '../styles/pages/contact.css';
           </div>
         </fieldset>
 
-        <div class="ct-2col" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 32px">
+        <div class="ct-2col" data-sans-formule style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 32px">
           <fieldset style="border:0;padding:0;margin:0">
             <legend class="flabel" style="padding:0;margin-bottom:12px">Budget</legend>
             <div class="chips">

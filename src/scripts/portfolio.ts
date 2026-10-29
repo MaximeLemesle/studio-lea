@@ -50,6 +50,12 @@ function apply(animate: boolean) {
 }
 
 if (wall) {
+  // ?filtre=cm depuis « Voir les projets » de la page Services
+  const depuis = filters.find((b) => b.dataset.filter === new URLSearchParams(location.search).get('filtre'));
+  if (depuis) {
+    filter = depuis.dataset.filter!;
+    filters.forEach((b) => b.setAttribute('aria-pressed', String(b === depuis)));
+  }
   apply(false);
   filters.forEach((btn) => {
     btn.addEventListener('click', () => {

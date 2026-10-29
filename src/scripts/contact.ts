@@ -27,6 +27,13 @@ const UNITE: Record<string, [string, string]> = {
   banderole: ['Banderole', '160 €'],
   infographie: ['Infographie', 'dès 180 €'],
 };
+// Formules des pages service (boutons « Choisir… ») : [service, formule, couleur du dossier].
+const FORMULES: Record<string, [string, string, string]> = {
+  'cm-essentiel': ['Community management', "L'essentiel", '#F2E3A0'],
+  'cm-reguliere': ['Community management', 'La régulière', '#F2E3A0'],
+  'audit-sans': ['Audit stratégique', 'Sans existant', '#C9D6EC'],
+  'audit-avec': ['Audit stratégique', 'Avec existant', '#C9D6EC'],
+};
 const PRIX: Record<string, number> = { carte: 120, signature: 60, doc: 90, rs: 70, flyer: 150, etiquette: 90, banderole: 160, infographie: 180 };
 
 const form = document.querySelector<HTMLFormElement>('#contact-form');
@@ -137,6 +144,21 @@ if (form) {
       fileInput.click();
     }
   });
+
+  /* ---------- Formule choisie : on n'affiche que son nom à la place des dossiers, budget et délai ---------- */
+  const formule = FORMULES[new URLSearchParams(location.search).get('formule') ?? ''];
+  if (formule) {
+    const box = $<HTMLElement>('[data-formule]');
+    const nomFormule = $<HTMLElement>('[data-formule-nom]');
+    nomFormule.textContent = formule[1];
+    nomFormule.style.background = formule[2];
+    $<HTMLInputElement>('input[name="formule"]').value = `${formule[0]} · ${formule[1]}`;
+    box.hidden = false;
+    form.querySelectorAll<HTMLElement>('[data-sans-formule]').forEach((el) => {
+      el.hidden = true;
+      el.querySelectorAll('input').forEach((i) => (i.disabled = true));
+    });
+  }
 
   /* ---------- Pré-remplissage depuis le calculateur (?devis=carte,flyer) ---------- */
   const devis = new URLSearchParams(location.search).get('devis');

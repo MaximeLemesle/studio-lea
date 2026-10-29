@@ -63,7 +63,7 @@ function neighbour(fiche: HTMLDialogElement, dir: 'prev' | 'next'): string | nul
   return fiche.querySelector<HTMLAnchorElement>(`[data-fiche-nav="${dir}"]`)?.dataset.projet ?? null;
 }
 
-export async function openFiche(slug: string, opts: { push?: boolean; trigger?: HTMLElement | null } = {}) {
+export async function openFiche(slug: string, opts: { push?: boolean; trigger?: HTMLElement | null; onglet?: string | null } = {}) {
   const fiche = await loadFiche(slug);
   if (!fiche) {
     window.location.href = ficheUrl(slug);
@@ -84,6 +84,10 @@ export async function openFiche(slug: string, opts: { push?: boolean; trigger?: 
   if (fiche.open && !fiche.matches(':modal')) fiche.close();
   if (!fiche.open) fiche.showModal();
   document.documentElement.style.overflow = 'hidden';
+  // Onglet ouvert : celui du service d'où l'on vient (page service ou filtre du portfolio), sinon le premier
+  const tab = (opts.onglet && fiche.querySelector<HTMLButtonElement>(`#tab-${slug}-${opts.onglet}`))
+    || fiche.querySelector<HTMLButtonElement>('[role="tab"]');
+  if (tab && tab.getAttribute('aria-selected') !== 'true') selectTab(tab);
   fiche.scrollTop = 0;
   fiche.querySelector<HTMLElement>('.vbox')?.scrollTo?.(0, 0);
   const title = fiche.dataset.title || `Studio Béa — ${fiche.querySelector('.f-title')?.textContent ?? ''}`;
@@ -297,7 +301,8 @@ document.addEventListener('click', (e) => {
   const link = target.closest<HTMLAnchorElement>('a[data-projet]');
   if (!link || link.closest('.fiche') || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
   e.preventDefault();
-  openFiche(link.dataset.projet!, { trigger: link });
+  const filtre = document.querySelector<HTMLElement>('[data-filter][aria-pressed="true"]')?.dataset.filter;
+  openFiche(link.dataset.projet!, { trigger: link, onglet: link.dataset.onglet ?? filtre });
 });
 
 window.addEventListener('popstate', () => {

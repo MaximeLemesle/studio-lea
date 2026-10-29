@@ -55,6 +55,7 @@ $nom = mb_substr($propre($_POST['nom'] ?? ''), 0, 120);
 $email = mb_substr($propre($_POST['email'] ?? ''), 0, 160);
 $entreprise = mb_substr($propre($_POST['entreprise'] ?? ''), 0, 160);
 $services = array_map($propre, (array) ($_POST['services'] ?? []));
+$formule = mb_substr($propre($_POST['formule'] ?? ''), 0, 80);
 $budget = mb_substr($propre($_POST['budget'] ?? ''), 0, 40);
 $delai = mb_substr($propre($_POST['delai'] ?? ''), 0, 40);
 $message = mb_substr(trim((string) ($_POST['message'] ?? '')), 0, 8000);
@@ -102,6 +103,7 @@ $lignes = [
     'Prénom et nom : ' . $nom,
     'Email : ' . $email,
     'Entreprise / activité : ' . ($entreprise ?: '—'),
+    ...($formule ? ['Formule choisie : ' . $formule] : []),
     'Les dossiers qui vous intéressent : ' . ($services ? implode(', ', $services) : '—'),
     'Budget : ' . ($budget ?: '—'),
     'Délai : ' . ($delai ?: '—'),

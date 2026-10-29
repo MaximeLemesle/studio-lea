@@ -118,3 +118,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #4A2018;outline-offset:4p
   html .ct-follow .note { font-size: 17px !important; }
   .ct-sent { padding: 10px 0 40px; }
 }
+
+/* Formule choisie depuis une page service (?formule=…) */
+.ct-formule{cursor:default;font-weight:700;padding:0 18px;transform:rotate(-1.5deg)}
+[data-sans-formule][hidden]{display:none !important}
