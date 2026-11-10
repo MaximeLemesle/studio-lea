@@ -39,7 +39,7 @@ for dirpath, _, files in os.walk(ROOT):
         if name.endswith('.html'):
             prefix = rel_prefix(full)
             t = open(full, encoding='utf-8').read()
-            t = re.sub(r'\b(href|src|action|data-full)="(/[^"]*)"', lambda m: '%s="%s"' % (m.group(1), fix_url(m.group(2), prefix)), t)
+            t = re.sub(r'\b(href|src|action|poster|data-full|data-video)="(/[^"]*)"', lambda m: '%s="%s"' % (m.group(1), fix_url(m.group(2), prefix)), t)
             t = re.sub(r'\bsrcset="([^"]*)"', lambda m: 'srcset="%s"' % ', '.join(
                 ' '.join([fix_url(p.split()[0], prefix)] + p.split()[1:]) for p in m.group(1).split(',') if p.strip()), t)
             t = re.sub(r'url\((["\']?)(/assets/[^)"\']+)\1\)', lambda m: 'url(%s%s%s)' % (m.group(1), fix_url(m.group(2), prefix), m.group(1)), t)

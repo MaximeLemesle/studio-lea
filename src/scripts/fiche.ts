@@ -30,8 +30,8 @@ async function loadFiche(slug: string): Promise<HTMLDialogElement | null> {
     const remote = doc.getElementById(`fiche-${slug}`);
     if (!remote) return null;
     // les chemins de la fiche sont relatifs à sa propre page : on les rend absolus
-    remote.querySelectorAll<HTMLElement>('[src], [srcset], [href], [data-full]').forEach((el) => {
-      for (const attr of ['src', 'href', 'data-full']) {
+    remote.querySelectorAll<HTMLElement>('[src], [srcset], [href], [data-full], [data-video]').forEach((el) => {
+      for (const attr of ['src', 'href', 'data-full', 'data-video']) {
         const v = el.getAttribute(attr);
         if (v && !v.startsWith('#')) el.setAttribute(attr, new URL(v, res.url).href);
       }
