@@ -192,13 +192,13 @@ function initFiche(fiche: HTMLDialogElement) {
   box.addEventListener('touchstart', (e) => {
     const t = e.touches[0];
     fromCover = !!(e.target as HTMLElement).closest('.f-cover');
-    y0 = box.scrollTop <= 0 || (e.target as HTMLElement).closest('.f-grab') ? t.clientY : null;
+    y0 = (e.target as HTMLElement).closest('.f-grab') ? t.clientY : null;
     x0 = t.clientX;
   }, { passive: true });
   box.addEventListener('touchmove', (e) => {
     if (y0 === null || reduceMotion()) return;
     const dy = e.touches[0].clientY - y0;
-    if (dy > 0 && box.scrollTop <= 0) box.style.translate = `0 ${dy}px`;
+    if (dy > 0) box.style.translate = `0 ${dy}px`;
   }, { passive: true });
   box.addEventListener('touchend', (e) => {
     const t = e.changedTouches[0];
