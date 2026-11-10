@@ -235,6 +235,9 @@ button.btn { background-clip: padding-box; }
    Sans JavaScript ou avec « réduire les animations », tout reste à l'état final.
    ========================================================================== */
 @keyframes draw { to { stroke-dashoffset: 0; } }
+/* Textes manuscrits : le délié du L (et des autres majuscules) dépasse à gauche de la boîte du texte et
+   Safari le coupe au bord de cette boîte. On agrandit la boîte vers la gauche sans déplacer le texte. */
+[data-anim="write"] { padding-left: .3em; translate: -.3em 0; }
 /* « s'écrit à la main » : si le navigateur n'anime pas clip-path, le texte reste simplement visible */
 @keyframes write {
   0% { opacity: 1; -webkit-clip-path: inset(-50% 100% -50% -10%); clip-path: inset(-50% 100% -50% -10%); }

@@ -109,7 +109,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #4A20
   .h-about { padding: 64px 0 !important; }
   .h-about > .wrap { display: block !important; }
   .h-about > .wrap > div:first-child { gap: 14px !important; }
-  .h-hey { font-size: 60px !important; line-height: 1.05 !important; margin: 0 0 4px -14px !important; padding-left: 14px; }
+  .h-hey { font-size: 60px !important; line-height: 1.05 !important; margin: 0 0 4px !important; }
   .h-collage { flex-direction: column; align-items: center; gap: 22px; padding: 0 !important; margin-top: 36px; }
   .h-tournage { width: 250px !important; transform: rotate(-3deg) !important; }
   .h-tournage .washi { width: 96px !important; top: -13px !important; margin-left: -48px !important; }
