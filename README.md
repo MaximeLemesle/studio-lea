@@ -52,7 +52,7 @@ Les emplacements d'un contenu manquant affichent **« À compléter »** (classe
 ## Prochaine étape : ce que Léa doit fournir
 
 **Contenus manquants**
-- Vidéos UGC encore à fournir : page UGC (2 polaroïds du haut, 2 projets) et vidéo Mélatonine de la fiche Nutraclear. Déjà en ligne, dans `public/videos/` (H.264 720p, vignette .jpg) : portfolio (Salon des Pêches, Nutraclear, Albom) et fiche Salon des Pêches.
+- Vidéos UGC encore à fournir : page UGC (2 polaroïds du haut, 2 projets). Déjà en ligne, dans `public/videos/` (H.264 720p, vignette .jpg) : portfolio (Salon des Pêches, Nutraclear, Albom) et fiche Nutraclear (2 vidéos, dont Mélatonine+).
 - Témoignages : 3 sur l'accueil, 1 « Le mot de mes clients » par page service.
   Les sections sont masquées : passer `AFFICHER_TEMOIGNAGES` à `true` dans `src/lib/site.ts` pour les réafficher.
 
