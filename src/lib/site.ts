@@ -8,7 +8,7 @@ export const NAV = [
 ] as const;
 
 export const SOCIAL = {
-  instagram: 'https://www.instagram.com/lesaleaas/',
+  instagram: 'https://www.instagram.com/studiobea.comm/',
   linkedin: 'https://www.linkedin.com/in/l%C3%A9a-audouin/',
 };
 
